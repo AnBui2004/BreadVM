@@ -3,9 +3,12 @@ package hey.bread.terminal;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 import com.termux.app.TermuxActivity;
 import com.termux.app.TermuxService;
+
+import java.io.File;
 
 import hey.bread.vm.R;
 import hey.bread.vm.settings.SettingsData;
@@ -45,7 +48,13 @@ public class TerminalManager {
     }
 
     public static void setupForTermux(Context context) {
-        if (FileUtils.isFileExists(TermuxService.PREFIX_PATH + "/bin/bread-pd")) return;
+        SharedPreferences sharedPreferences = context.getSharedPreferences("terminal_data", Context.MODE_PRIVATE);;
+        File pdFile = new File(TermuxService.PREFIX_PATH + "/bin/bread-pd");
+
+        if (pdFile.exists()) {
+            long lastModified = sharedPreferences.getLong("lastModified", 0);;
+            if (pdFile.lastModified() == lastModified) return;
+        }
 
         String nativeDir = context.getApplicationInfo().nativeLibraryDir + "/";
         String executableContent = """
@@ -91,6 +100,7 @@ public class TerminalManager {
 
         executableContent = executableContent.replace("${loader32}", DeviceUtils.is64bit() ? "export PROOT_LOADER_32=${nativeDir}libproot-loader32.so" : "");
 
-        FileUtils.writeToFile(TermuxService.PREFIX_PATH + "/bin/", "bread-pd", executableContent.replace("${nativeDir}", nativeDir));
+        if (FileUtils.writeToFile(TermuxService.PREFIX_PATH + "/bin/", "bread-pd", executableContent.replace("${nativeDir}", nativeDir)))
+            sharedPreferences.edit().putLong("lastModified", pdFile.lastModified()).apply();
     }
 }
