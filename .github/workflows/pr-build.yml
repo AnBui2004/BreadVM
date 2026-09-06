@@ -116,5 +116,5 @@ jobs:
           if [[ -n "${{ secrets.TELEGRAM_BOT_TOKEN }}" ]]; then
             curl -s -o /dev/null -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
               -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d message_thread_id=${{ secrets.TELEGRAM_THREAD_ID }} \
-              -d $'text=Build complete! View the commits here: https://github.com/AnBui2004/Bread-VM-Emu-Android/commits'
+              -d $'text=Build complete! View the commits here: https://github.com/AnBui2004/BreadVM/commits'
           fi
