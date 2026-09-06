@@ -3,7 +3,7 @@
  */
 package android.androidVNC;
 
-import com.vectras.vm.R;
+import hey.bread.vm.R;
 
 import android.widget.ImageView.ScaleType;
 

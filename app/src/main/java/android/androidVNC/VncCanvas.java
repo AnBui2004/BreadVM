@@ -48,10 +48,10 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.antlersoft.android.bc.BCFactory;
-import com.vectras.qemu.Config;
-import com.vectras.vm.R;
-import com.vectras.vm.utils.DeviceUtils;
-import com.vectras.vm.utils.UIUtils;
+import hey.bread.qemu.Config;
+import hey.bread.vm.R;
+import hey.bread.vm.utils.DeviceUtils;
+import hey.bread.vm.utils.UIUtils;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -932,7 +932,7 @@ public class VncCanvas extends AppCompatImageView {
 	boolean processPointerEvent(int x, int y, int action,
                                 int modifiers, boolean mouseIsDown, boolean useRightButton,
                                 boolean useMiddleButton, boolean scrollUp) {
-        //Log.v("Vectras", "processPointerEvent: " + x + ", " + y + ", "
+        //Log.v("Bread VM", "processPointerEvent: " + x + ", " + y + ", "
         //    + action + ", " + modifiers + ", " + mouseIsDown + ", "
         //        + useRightButton + ", " + useMiddleButton + ", " + scrollUp
         //);
@@ -940,30 +940,30 @@ public class VncCanvas extends AppCompatImageView {
             if (rfb != null && rfb.inNormalProtocol) {
                 if (action == MotionEvent.ACTION_DOWN || (mouseIsDown && action == MotionEvent.ACTION_MOVE)) {
                     if (useRightButton) {
-                        // Log.v("Vectras", "Right Button Down");
+                        // Log.v("Bread VM", "Right Button Down");
                         pointerMask |= MOUSE_BUTTON_RIGHT;
                     } else if (useMiddleButton) {
                         pointerMask |= MOUSE_BUTTON_MIDDLE;
                     }else {
-                        //Log.v("Vectras", "Left Button Down: x=" + x + ", y=" + y);
+                        //Log.v("Bread VM", "Left Button Down: x=" + x + ", y=" + y);
                         pointerMask |= MOUSE_BUTTON_LEFT;
                     }
                 } else if (action == MotionEvent.ACTION_SCROLL) {
-                    // Log.v("Vectras", "Button Up");
+                    // Log.v("Bread VM", "Button Up");
                     if(scrollUp)
                         pointerMask |= MOUSE_BUTTON_SCROLL_UP;
                     else
                         pointerMask |= MOUSE_BUTTON_SCROLL_DOWN;
                 } else if (action == MotionEvent.ACTION_UP) {
-                    // Log.v("Vectras", "Button Up");
+                    // Log.v("Bread VM", "Button Up");
                     //pointerMask = 0;
                     if (useRightButton) {
-                        // Log.v("Vectras", "Right Button Down");
+                        // Log.v("Bread VM", "Right Button Down");
                         pointerMask &= ~MOUSE_BUTTON_RIGHT;
                     } else if (useMiddleButton) {
                         pointerMask &= ~MOUSE_BUTTON_MIDDLE;
                     }else {
-                        //Log.v("Vectras", "Left Button Down: x=" + x + ", y=" + y);
+                        //Log.v("Bread VM", "Left Button Down: x=" + x + ", y=" + y);
                         //XXX: Mouse middle click cannot always be detected so we
                         //  reset all buttons (left, middle, click) to be safe
                         pointerMask = 0;
@@ -2244,7 +2244,7 @@ public class VncCanvas extends AppCompatImageView {
                             //SDLActivity.onSDLNativeMouse(0, action, x, y);
                             //processPointerEvent(event,false);
 
-                            // Log.v("Vectras", "Button Up");
+                            // Log.v("Bread VM", "Button Up");
                             boolean scrollUp=false;
                             if (y > 0)
                                 scrollUp = true;

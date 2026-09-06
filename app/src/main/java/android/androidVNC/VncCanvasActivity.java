@@ -33,7 +33,6 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -45,16 +44,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ZoomControls;
 
 import com.antlersoft.android.bc.BCFactory;
-import com.vectras.vm.R;
-import com.vectras.qemu.Config;
-import com.vectras.vm.utils.UIUtils;
+import hey.bread.vm.R;
+import hey.bread.qemu.Config;
+import hey.bread.vm.utils.UIUtils;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -413,7 +410,7 @@ public abstract class VncCanvasActivity extends AppCompatActivity {
          */
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-            //VECTRAS: Disable this for now
+            // Disable this for now
 //			if (BCFactory.getInstance().getBCMotionEvent().getPointerCount(e2) > 1) {
 //				if (inScaling) {
 //					return false;
@@ -467,7 +464,7 @@ public abstract class VncCanvasActivity extends AppCompatActivity {
                 return true;
             }
             // if (e.getPointerCount() > 1) {
-            // // Log.v("Vectras", "Detected 2 finger tap in onTouchEvent");
+            // // Log.v("Bread VM", "Detected 2 finger tap in onTouchEvent");
             // rightClick(e);
             // return true;
             // }

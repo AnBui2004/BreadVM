@@ -20,7 +20,7 @@ bool checkIsAdreno(VkPhysicalDevice physicalDevice, PFN_vkGetPhysicalDevicePrope
 }
 
 extern "C" {
-    JNIEXPORT jboolean JNICALL Java_com_vectras_vm_utils_GpuHelper_isAdreno(JNIEnv* env, jobject obj) {
+    JNIEXPORT jboolean JNICALL Java_hey_bread_vm_utils_GpuHelper_isAdreno(JNIEnv* env, jobject obj) {
         // Try libvulkan.so at runtime.
         void* vulkanLib = dlopen("libvulkan.so", RTLD_NOW | RTLD_LOCAL);
         if (!vulkanLib) {

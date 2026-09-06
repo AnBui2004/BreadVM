@@ -23,7 +23,7 @@ package android.androidVNC;
 
 import java.util.ArrayList;
 
-import com.vectras.vm.R;
+import hey.bread.vm.R;
 
 import android.app.Activity;
 import android.app.ActivityManager.MemoryInfo;

@@ -20,7 +20,7 @@
         android:paddingBottom="0dp"
         android:background="@android:color/black">
 
-        <com.vectras.vm.x11.LorieView
+        <hey.bread.vm.x11.LorieView
             android:id="@+id/lorieView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

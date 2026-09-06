@@ -9,7 +9,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.vectras.vm.R;
+import hey.bread.vm.R;
 
 public class VncCursorView extends View {
 

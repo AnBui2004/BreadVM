@@ -36,7 +36,7 @@
                 android:paddingBottom="16dp"
                 android:text="@string/acceleration" />
 
-            <com.vectras.vm.view.SelectBoxView
+            <hey.bread.vm.view.SelectBoxView
                 android:id="@+id/sbv_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

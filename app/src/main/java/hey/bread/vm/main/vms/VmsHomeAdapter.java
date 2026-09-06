@@ -1,0 +1,165 @@
+package hey.bread.vm.main.vms;
+
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.signature.ObjectKey;
+import hey.bread.vm.R;
+import hey.bread.vm.VMManager;
+import hey.bread.vm.main.core.MainConfigs;
+import hey.bread.vm.main.core.MainStartVM;
+import hey.bread.vm.main.core.RomOptionsDialog;
+import hey.bread.vm.main.core.SharedData;
+import hey.bread.vm.manager.VmFileManager;
+import hey.bread.vm.utils.DialogUtils;
+import hey.bread.vm.utils.FileUtils;
+
+import java.io.File;
+import java.util.Collections;
+import java.util.List;
+
+public class VmsHomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+    private final Activity activity;
+    private final LayoutInflater inflater;
+    private final List<DataMainRoms> data;
+
+    public VmsHomeAdapter(Activity activity, List<DataMainRoms> data) {
+        this.activity = activity;
+        inflater = LayoutInflater.from(activity);
+        this.data = data;
+    }
+
+    // Inflate the layout when viewholder created
+    @NonNull
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = inflater.inflate(R.layout.container_main_roms, parent, false);
+        return new MyHolder(view);
+    }
+
+    // Bind data
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int _position) {
+
+        int position = holder.getBindingAdapterPosition();
+        if (position == RecyclerView.NO_POSITION) return;
+
+        // Get current position of item in recyclerview to bind data and assign values from list
+        final MyHolder myHolder = (MyHolder) holder;
+        final DataMainRoms current = data.get(position);
+
+        if (current == null) {
+            myHolder.ivIcon.setImageResource(R.drawable.ic_computer_180dp_with_padding);
+            myHolder.textName.setText(activity.getString(R.string.unknow));
+            myHolder.textArch.setText(activity.getString(R.string.unknow));
+
+            myHolder.cdRoms.setOnClickListener(view -> DialogUtils.twoDialog(
+                    activity,
+                    activity.getString(R.string.oops),
+                    activity.getString(R.string.delete_broken_vm_content),
+                    activity.getString(R.string.ok),
+                    activity.getString(R.string.cancel),
+                    true,
+                    R.drawable.error_96px,
+                    true,
+                    () -> VMManager.deleteVmInList(activity, position),
+                    null,
+                    null
+            ));
+
+            return;
+        }
+
+        myHolder.textName.setText(current.itemName);
+        myHolder.textArch.setText(current.itemArch);
+
+        MainConfigs.refreshVmIds.remove(current.vmID);
+        if (!current.itemIcon.isEmpty() && FileUtils.isFileExists(current.itemIcon)){
+            File file = new File(current.itemIcon);
+            Glide.with(myHolder.ivIcon)
+                    .load(file)
+                    .signature(new ObjectKey(file.lastModified()))
+                    .placeholder(R.drawable.ic_computer_180dp_with_padding)
+                    .error(R.drawable.ic_computer_180dp_with_padding)
+                    .into(myHolder.ivIcon);
+        } else if (VmFileManager.isScreenshotPngExists(current.vmID)) {
+            File file = new File(VmFileManager.getScreenshotPng(current.vmID));
+            Glide.with(myHolder.ivIcon)
+                    .load(file)
+                    .signature(new ObjectKey(file.lastModified()))
+                    .placeholder(R.drawable.ic_computer_180dp_with_padding)
+                    .error(R.drawable.ic_computer_180dp_with_padding)
+                    .into(myHolder.ivIcon);
+        } else {
+            VMManager.setIconWithName(myHolder.ivIcon, current.itemName);
+        }
+
+        myHolder.pin.setVisibility(current.pin ? View.VISIBLE : View.GONE);
+
+        myHolder.cdRoms.setOnClickListener(view -> MainStartVM.startNow(activity, current));
+
+        myHolder.cdRoms.setOnLongClickListener(v -> {
+            int pos = holder.getBindingAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION) return true;
+
+            RomOptionsDialog.show(activity, current);
+            return true;
+        });
+    }
+
+    // return total item from List
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
+
+    static class MyHolder extends RecyclerView.ViewHolder {
+
+        CardView cdRoms;
+        TextView textName, textArch;
+        ImageView ivIcon;
+        ImageView pin;
+
+        // create constructor to get widget reference
+        public MyHolder(View itemView) {
+            super(itemView);
+            cdRoms = itemView.findViewById(R.id.cdItem);
+            textName = itemView.findViewById(R.id.textName);
+            textArch = itemView.findViewById(R.id.textArch);
+            ivIcon = itemView.findViewById(R.id.ivIcon);
+            pin = itemView.findViewById(R.id.iv_pin);
+        }
+
+    }
+
+    public void updateData(List<DataMainRoms> newData) {
+        Collections.sort(newData, (o1, o2) -> {
+            if (o1 == null && o2 == null) return 0;
+            if (o1 == null) return 1;
+            if (o2 == null) return -1;
+            if (o1.pin && !o2.pin) return -1;
+            if (!o1.pin && o2.pin) return 1;
+
+            return 0;
+        });
+
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new VmsDiffUtil(this.data, newData));
+        this.data.clear();
+        this.data.addAll(newData);
+
+        SharedData.dataVms.clear();
+        SharedData.dataVms.addAll(newData);
+
+        diffResult.dispatchUpdatesTo(this);
+    }
+}

@@ -45,7 +45,7 @@
                     android:background="#000"
                     android:orientation="vertical">
 
-                    <com.vectras.vterm.view.ZoomableTextView
+                    <hey.bread.terminal.view.ZoomableTextView
                         android:id="@+id/tvTerminalOutput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

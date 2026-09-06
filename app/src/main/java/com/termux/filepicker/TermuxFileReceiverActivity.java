@@ -9,7 +9,7 @@ import android.provider.OpenableColumns;
 import android.util.Log;
 import android.util.Patterns;
 
-import com.vectras.vm.R;
+import hey.bread.vm.R;
 import com.termux.app.DialogUtils;
 import com.termux.app.TermuxService;
 

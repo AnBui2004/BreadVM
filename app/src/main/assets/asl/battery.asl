@@ -59,7 +59,7 @@ DefinitionBlock ("battery.aml", "SSDT", 2, "QEMU", "BATTOS", 0x00000001)
                     "99Wh Laptop Battery",
                     "202605",
                     "LiIon",
-                    "VECTRAS_VM_BATTERY_EMULATOR"
+                    "BREAD_VM_BATTERY_EMULATOR"
                 })
             }
 

@@ -1,0 +1,108 @@
+package hey.bread.vm.main.core;
+
+import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.widget.Toast;
+
+import hey.bread.qemu.Config;
+import hey.bread.vm.AppConfig;
+import hey.bread.vm.R;
+import hey.bread.vm.StartVM;
+import hey.bread.vm.VMManager;
+import hey.bread.vm.manager.VmFileManager;
+import hey.bread.vm.utils.DialogUtils;
+import hey.bread.vm.utils.FileUtils;
+import hey.bread.terminal.Terminal2;
+
+public class PendingCommand {
+    private static final String TAG = "PendingCommand";
+    public static String command = "";
+
+    public static void runNow(Activity activity) {
+        if (command != null && !command.isEmpty()) {
+            Log.d(TAG, "runNow: " + command);
+
+            if (!VMManager.isthiscommandsafe(command, activity)) {
+                DialogUtils.oneDialog(
+                        activity,
+                        activity.getString(R.string.problem_has_been_detected),
+                        activity.getString(R.string.harmful_command_was_detected) + " " + activity.getResources().getString(R.string.reason) + ": " + VMManager.latestUnsafeCommandReason,
+                        activity.getString(R.string.ok),
+                        true,
+                        R.drawable.verified_user_24px,
+                        true,
+                        null,
+                        null
+                );
+
+                command = "";
+            } else {
+                if (command.startsWith("qemu-img")) {
+                    if (!VMManager.isthiscommandsafeimg(command, activity)) {
+                        command = "";
+
+                        DialogUtils.oneDialog(activity,
+                                activity.getString(R.string.problem_has_been_detected),
+                                activity.getString(R.string.size_too_large_try_qcow2_format),
+                                activity.getString(R.string.ok),
+                                true,
+                                R.drawable.warning_48px,
+                                true,
+                                null,
+                                null
+                        );
+                    } else {
+                        Terminal2 terminal2 = new Terminal2(activity);
+                        terminal2.setShowProgressDialog(true);
+                        terminal2.execute(command, new Terminal2.Terminal2Callback() {
+                            @Override
+                            public void onRunning(String command, String newLine) {
+                                // Nothing to do.
+                            }
+
+                            @Override
+                            public void onFinished(String command, String log, int status) {
+                                new Handler(Looper.getMainLooper()).post(() -> {
+                                    if (status == terminal2.SUCCESS) {
+                                        Toast.makeText(activity, activity.getResources().getString(R.string.done), Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Toast.makeText(activity, activity.getResources().getString(R.string.an_error_occurred_while_creating_the_virtual_drive), Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onError(String command, Exception exception) {
+                                new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(activity, activity.getResources().getString(R.string.an_error_occurred_while_creating_the_virtual_drive), Toast.LENGTH_LONG).show());
+                            }
+                        });
+                    }
+
+                    command = "";
+                } else if (command.startsWith("qemu-system")) {
+                    Log.i(TAG, "Run VM...");
+
+                    Config.vmID = "quick_run_" + VMManager.idGenerator();
+                    new Thread(() -> {
+                        VmFileManager.removeTemp(activity, Config.vmID);
+
+                        String env = StartVM.env(activity, command, "", true);
+                        FileUtils.createDirectory(AppConfig.vmFolder + Config.vmID);
+                        activity.runOnUiThread(() -> {
+                            MainStartVM.startNow(activity, "Quick run", env, Config.vmID, null, null);
+                            VMManager.lastQemuCommand = command;
+                            command = "";
+                        });
+                    }).start();
+                }
+            }
+        }
+    }
+
+    public static String vmId;
+    public static String vmConfig;
+    public static String paramsNotebookConfig;
+    public static boolean forceCreate;
+}

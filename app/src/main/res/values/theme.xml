@@ -115,7 +115,7 @@
 
     <!-- See https://developer.android.com/training/material/theme.html for how to customize the Material theme. -->
     <!-- NOTE: Cannot use "Light." since it hides the terminal scrollbar on the default black background. -->
-    <style name="Theme.Vectras.Black" parent="@android:style/Theme.Material.NoActionBar">
+    <style name="ThemeBlack" parent="@android:style/Theme.Material.NoActionBar">
         <item name="android:statusBarColor">#000000</item>
         <item name="android:colorPrimary">#FF000000</item>
         <item name="android:windowBackground">@android:color/black</item>

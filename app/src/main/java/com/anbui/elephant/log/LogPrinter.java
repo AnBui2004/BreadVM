@@ -12,7 +12,7 @@ package com.anbui.elephant.log;
 
 import android.util.Log;
 
-import com.vectras.vm.BuildConfig;
+import hey.bread.vm.BuildConfig;
 
 public class LogPrinter {
     public static void print(String TAG, String text, Throwable throwable) {

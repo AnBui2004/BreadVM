@@ -11,8 +11,8 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.DrawableContainer;
 
-import com.vectras.vm.R;
-import com.vectras.vm.VectrasApp;
+import hey.bread.vm.R;
+import hey.bread.vm.BreadVmApplication;
 
 /**
  * @author Michael A. MacDonald
@@ -40,7 +40,7 @@ public class AbstractBitmapDrawable extends DrawableContainer {
     public static final int CURSOR_WIDTH_DP = 10;
 
     private Bitmap cursorBitmap= BitmapFactory.decodeResource(
-            VectrasApp.getContext().getResources(),
+            BreadVmApplication.getContext().getResources(),
             R.drawable.xc_left_ptr
     );
 

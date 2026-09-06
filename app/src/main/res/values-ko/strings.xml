@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vectras VM</string>
+    <string name="app_name">Bread VM</string>
 
-    <!--======================VECTRAS STRINGS====================-->
+    <!--======================BREAD STRINGS====================-->
     <!-- logger -->
     <string name="startvm">VM이 시작되었습니다!</string>
     <string name="stopvm">VM이 중지되었습니다!</string>
     <string name="noproccesses">실행 중인 프로세스가 없습니다!</string>
     <string name="unknownstate">알 수 없는 상태입니다!</string>
 
-    <string name="desktopInstructions">외부 마우스를 사용하려면:\n\t게스트 OS 안에서 마우스 가속을 비활성화하세요.\n\t\tDSL에서는 다음 명령을 사용하세요: xset m 1\n"\t\t다른 OS에서는 \"포인터 정확도 향상(Enhance pointer Precision)\"을 비활성화하거나 Vectras 메인 옵션에서 마우스 \"usb-tablet\"을 선택하세요.\n\tUSB/Bluetooth 마우스를 연결하거나 페어링한 뒤 OK를 누르세요.\n\t마우스 포인터를 데스크톱의 모든 가장자리로 이동해 보정하세요.\n"</string>
+    <string name="desktopInstructions">외부 마우스를 사용하려면:\n\t게스트 OS 안에서 마우스 가속을 비활성화하세요.\n\t\tDSL에서는 다음 명령을 사용하세요: xset m 1\n"\t\t다른 OS에서는 \"포인터 정확도 향상(Enhance pointer Precision)\"을 비활성화하거나 Bread 메인 옵션에서 마우스 \"usb-tablet\"을 선택하세요.\n\tUSB/Bluetooth 마우스를 연결하거나 페어링한 뒤 OK를 누르세요.\n\t마우스 포인터를 데스크톱의 모든 가장자리로 이동해 보정하세요.\n"</string>
 
     <string name="navigation_drawer_open">드로어 열기</string>
     <string name="navigation_drawer_close">드로어 닫기</string>
@@ -23,7 +23,7 @@
     <string name="keyboard">키보드</string>
     <string name="name">이름</string>
     <string name="size">크기:</string>
-    <string name="vectras_website">Vectras 웹사이트</string>
+    <string name="bread_website">Bread 웹사이트</string>
     <string name="about">정보</string>
     <string name="settings">설정</string>
     <string name="username">사용자 이름</string>
@@ -147,7 +147,7 @@
     <string name="killqemu">QEMU 종료</string>
     <string name="installing">설치 중…</string>
     <string name="setup_sound">Termux용 사운드 설정</string>
-    <string name="setup_sound_guide_content">Vectras VM에서 실행 중인 가상 머신이 Termux를 사용해 오디오를 재생할 수 있게 합니다. 아직 Termux를 설정하지 않았다면 설정 시작을 선택하세요. 명령이 자동으로 클립보드에 복사되며, Termux에 붙여넣고 실행해야 설정이 완료됩니다. 다음부터는 사운드를 재생하려면 Termux가 실행 중인지 확인하세요.</string>
+    <string name="setup_sound_guide_content">Bread VM에서 실행 중인 가상 머신이 Termux를 사용해 오디오를 재생할 수 있게 합니다. 아직 Termux를 설정하지 않았다면 설정 시작을 선택하세요. 명령이 자동으로 클립보드에 복사되며, Termux에 붙여넣고 실행해야 설정이 완료됩니다. 다음부터는 사운드를 재생하려면 Termux가 실행 중인지 확인하세요.</string>
     <string name="copied">복사되었습니다.</string>
     <string name="start_setup">설정 시작</string>
     <string name="termux_is_not_installed">Termux가 설치되어 있지 않습니다</string>
@@ -201,7 +201,7 @@
     <string name="file_format_is_not_supported_floppy_drive">파일 형식이 지원되지 않아 제대로 작동하지 않을 수 있습니다. 일반적으로 지원되는 형식은 img, flp, ima입니다. 계속할까요?</string>
     <string name="error_PROOT_IS_MISSING_0">시스템이 작동하지 않습니다. 필요한 파일이 없습니다. 잘못된 설정 때문에 발생했을 수 있습니다. 설정을 다시 시도할까요? 오류 코드: PROOT_IS_MISSING_0.</string>
     <string name="error_DRIVE_INDEX_0_EXISTS">오류가 발생해 가상 머신을 시작할 수 없습니다. 같은 슬롯에 연결할 수 없는 드라이브가 두 개 이상 있습니다. 가상 머신 설정을 확인하고 모든 드라이브가 같은 슬롯에 연결되어 있지 않은지 확인하세요. 오류 코드: DRIVE_INDEX_0_EXISTS.</string>
-    <string name="error_X11_NOT_AVAILABLE">오류가 발생해 가상 머신이 실행 중이 아닙니다. X11 디스플레이를 일시적으로 사용할 수 없습니다. Vectras VM을 종료한 뒤 다시 시도하세요. 더 안정적인 VNC로 전환해 볼 수도 있습니다. 오류 코드: X11_NOT_AVAILABLE.</string>
+    <string name="error_X11_NOT_AVAILABLE">오류가 발생해 가상 머신이 실행 중이 아닙니다. X11 디스플레이를 일시적으로 사용할 수 없습니다. Bread VM을 종료한 뒤 다시 시도하세요. 더 안정적인 VNC로 전환해 볼 수도 있습니다. 오류 코드: X11_NOT_AVAILABLE.</string>
     <string name="switched_to_VNC">VNC로 전환했습니다. 이제 가상 머신 실행을 다시 시도할 수 있습니다.</string>
     <string name="restore">복원</string>
     <string name="restore_content">이전에 모든 파일을 유지하도록 선택했다면 삭제된 가상 머신이 복원됩니다.</string>
@@ -239,13 +239,13 @@
     <string name="mirrors">미러</string>
     <string name="letstart">시작하기</string>
     <string name="welcome">환영합니다!</string>
-    <string name="welcome_to_vectras_vm_lets_get_started">Vectras VM에 오신 것을 환영합니다. 시작해 볼까요!</string>
+    <string name="welcome_to_bread_vm_lets_get_started">Bread VM에 오신 것을 환영합니다. 시작해 볼까요!</string>
     <string name="processing_this_may_take_a_few_minutes">처리 중...\n몇 분 정도 걸릴 수 있습니다.</string>
     <string name="update">업데이트</string>
     <string name="ok">OK</string>
     <string name="you_are_using_beta_version">베타 버전을 사용 중입니다</string>
     <string name="switch_to_check_for_updates_on_the_Beta_channel_now">지금 베타 채널로 전환해 업데이트를 확인하시겠습니까?</string>
-    <string name="you_need_to_complete_vectras_vm_setup_before_importing_this_file">이 파일을 가져오기 전에 Vectras VM 설정을 완료해야 합니다.</string>
+    <string name="you_need_to_complete_bread_vm_setup_before_importing_this_file">이 파일을 가져오기 전에 Bread VM 설정을 완료해야 합니다.</string>
     <string name="unable_to_create_the_directory_to_create_the_vm">가상 머신을 만들 디렉터리를 만들 수 없습니다. 권한을 부여하지 않았거나, 내부 저장소의 여유 공간이 부족하거나, 다른 이유 때문일 수 있습니다.</string>
     <string name="with">기반:</string>
     <string name="not_the_command_to_run_qemu">QEMU를 실행하는 명령이 아닙니다.</string>
@@ -255,13 +255,13 @@
     <string name="command_are_not_allowed_to_contain_vertical_bars">명령에는 \"|\"를 포함할 수 없습니다.</string>
     <string name="reason">이유</string>
     <string name="size_too_large_try_qcow2_format">크기가 너무 큽니다. QCOW2 형식을 사용해 보세요.</string>
-    <string name="disclaimer_when_using_rom">이 ROM의 파일 또는 이 ROM에 포함된 파일을 어떤 방식으로든 사용하면, 사용자에게 발생할 수 있는 의도치 않은 문제에 대해 우리(Vectras VM 개발자 또는 기여자)와 이 ROM 또는 파일의 제작자는 책임지지 않는다는 데 동의하는 것입니다. 다만 이 ROM 또는 파일의 제작자가 사용자나 다른 사람에게 고의로 해를 끼치려 했다는 사실이 확인되면 해당 제작자가 책임을 집니다. 또한 이 ROM에 포함된 운영 체제의 소유자 및 제공자의 약관과 정책에 동의한다는 뜻이기도 합니다.</string>
+    <string name="disclaimer_when_using_rom">이 ROM의 파일 또는 이 ROM에 포함된 파일을 어떤 방식으로든 사용하면, 사용자에게 발생할 수 있는 의도치 않은 문제에 대해 우리(Bread VM 개발자 또는 기여자)와 이 ROM 또는 파일의 제작자는 책임지지 않는다는 데 동의하는 것입니다. 다만 이 ROM 또는 파일의 제작자가 사용자나 다른 사람에게 고의로 해를 끼치려 했다는 사실이 확인되면 해당 제작자가 책임을 집니다. 또한 이 ROM에 포함된 운영 체제의 소유자 및 제공자의 약관과 정책에 동의한다는 뜻이기도 합니다.</string>
     <string name="i_agree">동의합니다</string>
     <string name="dont_miss_out">놓치지 마세요!</string>
     <string name="disclaimer_here">ROM을 가져오거나 관련 파일을 사용하면 이 내용을 모두 수락하는 것입니다. 전체 내용을 읽으려면 여기를 클릭하세요.</string>
     <string name="join_now_on_telegram_if_you_want">원한다면 지금 Telegram에 참여하세요.</string>
     <string name="donate">후원</string>
-    <string name="donatecontent">Vectras VM이 마음에 든다면 Patreon에서 후원할 수 있습니다. 정말 감사합니다!</string>
+    <string name="donatecontent">Bread VM이 마음에 든다면 Patreon에서 후원할 수 있습니다. 정말 감사합니다!</string>
     <string name="you_are_ready_to_go">이제 준비되었습니다!</string>
     <string name="shared_folder_is_not_used_because_i386_does_not_support_it">i386이 지원하지 않아 공유 폴더를 사용하지 않습니다.</string>
     <string name="use_uefi">UEFI 사용</string>
@@ -293,7 +293,7 @@
     <string name="note_for_selecting_import">cvbi 형식 파일을 선택해 지금 가져올 수 있습니다.</string>
     <string name="note_for_selecting_qemu">이 오픈 소스 에뮬레이터에 대해 자세히 알아보세요.</string>
     <string name="create_command">Param Notebook</string>
-    <string name="note_for_selecting_create_command">더 쉽게 사용자 지정하여 Vectras VM용 새 가상 머신을 만듭니다.</string>
+    <string name="note_for_selecting_create_command">더 쉽게 사용자 지정하여 Bread VM용 새 가상 머신을 만듭니다.</string>
     <string name="import_or_choose_an_architecture_to_start_creating">가져오거나 아키텍처를 선택해 만들기를 시작하세요.</string>
     <string name="set_arch_universal_note">cvbi 파일을 가져오기 카드로 끌어다 놓으면 가져올 수 있습니다.</string>
     <string name="copy">복사</string>
@@ -393,7 +393,7 @@
     <string name="error_ANOTHER_PROCESS_USING_IMAGE">오류가 발생해 가상 머신을 시작할 수 없습니다. 다른 프로세스가 이 가상 머신에도 필요한 파일을 사용 중입니다. 해당 프로세스를 찾아 종료하세요.</string>
     <string name="could_not_create_dir_to_save_cvbi_content">문제가 발생했습니다. cvbi 파일을 저장할 디렉터리를 만들 수 없습니다.</string>
     <string name="quick_start">빠른 시작</string>
-    <string name="quick_start_description">Vectras VM을 멀티태스킹에서 제거하지 않았다면 다음에 열 때 더 빠르게 시작합니다.</string>
+    <string name="quick_start_description">Bread VM을 멀티태스킹에서 제거하지 않았다면 다음에 열 때 더 빠르게 시작합니다.</string>
     <string name="cpu_not_support_64_xfce">기기의 Android OS 또는 CPU가 64비트를 지원하지 않아 이 기능을 사용할 수 없습니다.</string>
     <string name="the_file_could_not_be_processed_content">파일을 처리할 수 없습니다. 파일 경로가 잘못되었거나 파일이 손상되었을 수 있습니다. 나중에 다시 시도하세요.</string>
     <string name="focus_or_defocus_the_qemu_window">QEMU 창 포커스 전환</string>
@@ -441,7 +441,7 @@
     <string name="something_went_wrong">문제가 발생했습니다</string>
     <string name="the_setup_could_not_be_completed_and_below_is_the_log">설정을 완료할 수 없습니다. 아래는 로그입니다.</string>
     <string name="this_option_is_temporarily_unavailable_because_the_server_cannot_be_connected">서버에 연결할 수 없어 이 옵션은 일시적으로 사용할 수 없습니다.</string>
-    <string name="vectras_vm_cannot_run_on_this_device">이 기기에서는 Vectras VM을 실행할 수 없습니다.</string>
+    <string name="bread_vm_cannot_run_on_this_device">이 기기에서는 Bread VM을 실행할 수 없습니다.</string>
     <string name="not_enough_storage_space">저장 공간이 부족합니다.</string>
     <string name="there_are_no_logs">로그가 없습니다.</string>
     <string name="the_required_package_is_not_installed_content">필수 패키지가 설치되어 있지 않습니다. 이 기능을 사용하기 전에 설치해야 합니다.</string>
@@ -452,7 +452,7 @@
     <string name="check_before_extract">추출 전 검사</string>
     <string name="check_before_extract_note">압축 해제에 시간을 낭비하거나 압축 해제 후에야 오류가 발견되는 일을 피할 수 있도록 오류를 빠르게 감지합니다.</string>
     <string name="checking">확인 중…</string>
-    <string name="x11_display_cannot_be_used_at_this_time_content">현재 X11 디스플레이를 사용할 수 없습니다. Vectras VM을 닫았다가 다시 열어 보세요.</string>
+    <string name="x11_display_cannot_be_used_at_this_time_content">현재 X11 디스플레이를 사용할 수 없습니다. Bread VM을 닫았다가 다시 열어 보세요.</string>
     <string name="run_qemu_with_xterm">Xterm으로 QEMU 실행</string>
     <string name="run_qemu_with_xterm_note">화면을 전환하지 않고 QEMU 모니터 명령을 더 쉽게 실행할 수 있습니다.</string>
     <string name="quick_edit">빠른 편집</string>
@@ -512,7 +512,7 @@
     <string name="pause_vm_note">리소스를 절약하기 위해 가상 머신 상태를 저장하고 종료합니다. 다음 부팅 때 이 상태가 유지됩니다. 이 가상 머신에서 사용하는 파일을 변경, 이동 또는 삭제하지 마세요.</string>
     <string name="pausing_vm_note">VM을 일시 중지하는 중…\n이 화면을 벗어나지 마세요.</string>
     <string name="resuming">재개 중…</string>
-    <string name="vm_resume_error_note">이전에 일시 중지된 가상 머신 상태를 다시 불러오는 중 문제가 발생했습니다. 부팅하기 전에 Vectras VM 설정에서 이 가상 머신 또는 QEMU 설정을 수정했다면, 마지막으로 이 가상 머신의 전원을 켰을 때와 같은 설정으로 변경했는지 확인하세요. 저장된 상태를 유지하거나 제거할까요?</string>
+    <string name="vm_resume_error_note">이전에 일시 중지된 가상 머신 상태를 다시 불러오는 중 문제가 발생했습니다. 부팅하기 전에 Bread VM 설정에서 이 가상 머신 또는 QEMU 설정을 수정했다면, 마지막으로 이 가상 머신의 전원을 켰을 때와 같은 설정으로 변경했는지 확인하세요. 저장된 상태를 유지하거나 제거할까요?</string>
     <string name="keep_and_continue">유지하고 계속하기</string>
     <string name="remove_and_continue">제거하고 계속하기</string>
     <string name="vm_state_save_failed_note">오류가 발생해 가상 머신 상태를 저장할 수 없습니다. 나중에 다시 시도하세요.</string>

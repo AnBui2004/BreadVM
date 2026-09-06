@@ -42,7 +42,7 @@ jobs:
         if [[ -n "${{ secrets.TELEGRAM_BOT_TOKEN }}" ]]; then
           curl -s -o /dev/null -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d message_thread_id=${{ secrets.TELEGRAM_THREAD_ID }} \
-            -d $'text=Starting to build Vectras VM on GitHub.\nPlease wait about 5 minutes.\nRun ID: '${GITHUB_RUN_ID}
+            -d $'text=Starting to build Bread VM on GitHub.\nPlease wait about 5 minutes.\nRun ID: '${GITHUB_RUN_ID}
         fi
 
     - name: Build Debug APK
@@ -55,13 +55,13 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: android-debug-apk
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: app/build/outputs/apk/debug/*.apk
 
     - name: Upload Release APK as artifact
       uses: actions/upload-artifact@v4
       with:
         name: android-release-apk
-        path: app/build/outputs/apk/release/app-release.apk
+        path: app/build/outputs/apk/release/*.apk
 
     - name: Update Alpha Release
       uses: andelf/nightly-release@main

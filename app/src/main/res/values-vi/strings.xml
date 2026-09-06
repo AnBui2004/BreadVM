@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Vectras VM</string>
+    <string name="app_name">Bread VM</string>
 
-    <!--======================VECTRAS STRINGS====================-->
+    <!--======================BREAD STRINGS====================-->
     <string name="qemu_version">Ổn định</string>
     <!-- logger -->
     <string name="startvm">Máy ảo đã chạy!</string>
@@ -10,7 +10,7 @@
     <string name="noproccesses">Không có tiền trình nào!</string>
     <string name="unknownstate">Trạng thái không xác định!</string>
 
-    <string name="desktopInstructions">Để sử dụng Chuột Ngoài:\n\tTắt Gia tốc Chuột trong Hệ điều hành Khách.\n\t\tĐối với DSL, sử dụng lệnh: xset m 1\n\t\tĐối với các Hệ điều hành khác, tắt \"Nâng cao độ chính xác của con trỏ\" hoặc chọn Chuột \"usb-tablet\" từ các tùy chọn chính của Vectras.\n\tCắm hoặc Ghép nối Chuột USB/Bluetooth của bạn và nhấn OK\n\tDi chuyển con trỏ chuột đến tất cả các cạnh màn hình để căn chỉnh.\n</string>
+    <string name="desktopInstructions">Để sử dụng Chuột Ngoài:\n\tTắt Gia tốc Chuột trong Hệ điều hành Khách.\n\t\tĐối với DSL, sử dụng lệnh: xset m 1\n\t\tĐối với các Hệ điều hành khác, tắt \"Nâng cao độ chính xác của con trỏ\" hoặc chọn Chuột \"usb-tablet\" từ các tùy chọn chính của Bread.\n\tCắm hoặc Ghép nối Chuột USB/Bluetooth của bạn và nhấn OK\n\tDi chuyển con trỏ chuột đến tất cả các cạnh màn hình để căn chỉnh.\n</string>
 
     <string name="navigation_drawer_open">Mở ngăn kéo</string>
     <string name="navigation_drawer_close">Đóng ngăn kéo</string>
@@ -24,7 +24,7 @@
     <string name="keyboard">Bàn phím</string>
     <string name="name">Tên</string>
     <string name="size">Kích thước:</string>
-    <string name="vectras_website">Trang web của Vectras</string>
+    <string name="bread_website">Trang web của Bread</string>
     <string name="about">Giới thiệu</string>
     <string name="settings">Cài đặt</string>
     <string name="username">Tên người dùng</string>
@@ -153,7 +153,7 @@
     <string name="killqemu">Dừng QEMU</string>
     <string name="installing">Đang cài đặt…</string>
     <string name="setup_sound">Thiết lập âm thanh cho Termux</string>
-    <string name="setup_sound_guide_content">Điều này cho phép các máy ảo chạy trên Vectras VM phát âm thanh bằng Termux. Nếu bạn chưa thiết lập Termux, hãy chọn Bắt đầu thiết lập, lệnh sẽ tự động được sao chép vào bảng tạm, bạn cần dán lệnh đó và chạy nó trong Termux để hoàn tất thiết lập. Những lần sau, hãy đảm bảo Termux đang chạy để phát âm thanh nha.</string>
+    <string name="setup_sound_guide_content">Điều này cho phép các máy ảo chạy trên Bread VM phát âm thanh bằng Termux. Nếu bạn chưa thiết lập Termux, hãy chọn Bắt đầu thiết lập, lệnh sẽ tự động được sao chép vào bảng tạm, bạn cần dán lệnh đó và chạy nó trong Termux để hoàn tất thiết lập. Những lần sau, hãy đảm bảo Termux đang chạy để phát âm thanh nha.</string>
     <string name="copied">Đã sao chép.</string>
     <string name="start_setup">Bắt đầu thiết lập</string>
     <string name="termux_is_not_installed">Termux không được cài đặt</string>
@@ -207,7 +207,7 @@
     <string name="file_format_is_not_supported_floppy_drive">Có thể sẽ không hoạt động được vì định dạng tệp không được hỗ trợ. Các định dạng phổ biến được hỗ trợ là img, flp và ima. Bạn có muốn tiếp tục không?</string>
     <string name="error_PROOT_IS_MISSING_0">Hệ thống không hoạt động, các tập tin cần thiết đã biến đi đâu mất rồi. Vấn đề này có thể do cài đặt không chính xác. Bạn có muốn thử cài đặt lại không? Mã lỗi: PROOT_IS_MISSING_0.</string>
     <string name="error_DRIVE_INDEX_0_EXISTS">Đã xảy ra lỗi và máy ảo không thể khởi động. Nhiều ổ đĩa không thể cắm vào cùng một khe cắm. Vui lòng kiểm tra cài đặt máy ảo của bạn và đảm bảo rằng không có ổ đĩa nào được cắm vào cùng một khe cắm. Mã lỗi: DRIVE_INDEX_0_EXISTS.</string>
-    <string name="error_X11_NOT_AVAILABLE">Đã xảy ra lỗi và máy ảo không hoạt động. Màn hình X11 tạm thời không khả dụng, vui lòng đóng Vectras VM và thử lại. Bạn có thể thử chuyển sang VNC, nó ổn định hơn. Mã lỗi: X11_NOT_AVAILABLE.</string>
+    <string name="error_X11_NOT_AVAILABLE">Đã xảy ra lỗi và máy ảo không hoạt động. Màn hình X11 tạm thời không khả dụng, vui lòng đóng Bread VM và thử lại. Bạn có thể thử chuyển sang VNC, nó ổn định hơn. Mã lỗi: X11_NOT_AVAILABLE.</string>
     <string name="switched_to_VNC">Đã chuyển sang VNC. Giờ bạn có thể thử chạy lại máy ảo.</string>
     <string name="restore">Khôi phục</string>
     <string name="restore_content">Các máy ảo đã xóa sẽ sống dậy nếu trước đó bạn đã chọn giữ lại tất cả các tệp.</string>
@@ -245,13 +245,13 @@
     <string name="mirrors">Các máy chủ</string>
     <string name="letstart">Bắt đầu nào</string>
     <string name="welcome">Chào mừng!</string>
-    <string name="welcome_to_vectras_vm_lets_get_started">Chào mừng đến với Vectras VM. Cùng bắt đầu nào!</string>
+    <string name="welcome_to_bread_vm_lets_get_started">Chào mừng đến với Bread VM. Cùng bắt đầu nào!</string>
     <string name="processing_this_may_take_a_few_minutes">Đang xử lý…\nĐiều này có thể mất vài phút.</string>
     <string name="update">Cập nhật</string>
     <string name="ok">OK</string>
     <string name="you_are_using_beta_version">Bạn đang dùng phiên bản Beta</string>
     <string name="switch_to_check_for_updates_on_the_Beta_channel_now">Chuyển sang kiểm tra cập nhật ở kênh Beta ngay.</string>
-    <string name="you_need_to_complete_vectras_vm_setup_before_importing_this_file">Bạn cần hoàn thành thiết lập Vectras Vm trước khi nhập tệp này.</string>
+    <string name="you_need_to_complete_bread_vm_setup_before_importing_this_file">Bạn cần hoàn thành thiết lập Bread Vm trước khi nhập tệp này.</string>
     <string name="unable_to_create_the_directory_to_create_the_vm">Không thể tạo thư mục để tạo máy ảo, điều này có thể do bạn chưa cấp quyền, không đủ dung lượng lưu trữ hoặc thứ gì đó khác.</string>
     <string name="with">Với</string>
     <string name="not_the_command_to_run_qemu">Đây không phải là lệnh để chạy Qemu.</string>
@@ -261,13 +261,13 @@
     <string name="command_are_not_allowed_to_contain_vertical_bars">Lệnh không được phép chứa \"|\".</string>
     <string name="reason">Lý do</string>
     <string name="size_too_large_try_qcow2_format">Kích thước quá lớn, hãy thử định dạng qcow2.</string>
-    <string name="disclaimer_when_using_rom">Bằng cách sử dụng bất kỳ tệp nào của rom này hoặc bất kỳ tệp nào chứa bất cứ nội dung nào bằng bất kỳ cách nào, bạn đồng ý rằng chúng tôi (các nhà phát triển hoặc người đóng góp cho Vectras VM) và người tạo ra rom này hoặc các tệp này sẽ không chịu trách nhiệm cho bất kỳ sự cố ngoài ý muốn nào xảy ra với bạn và tài sản của bạn. Tuy nhiên, nếu người tạo ra rom này hoặc các tệp này được xác nhận là cố ý gây hại cho bạn hoặc bất kỳ ai khác, thì người tạo ra rom này hoặc các tệp này sẽ phải chịu trách nhiệm. Điều này cũng có nghĩa là bạn đã đồng ý với các Điều khoản và Chính sách của chủ sở hữu, nhà cung cấp hoặc các chủ sở hữu, nhà cung cấp của hệ điều hành hoặc các hệ điều hành có trong rom này.</string>
+    <string name="disclaimer_when_using_rom">Bằng cách sử dụng bất kỳ tệp nào của rom này hoặc bất kỳ tệp nào chứa bất cứ nội dung nào bằng bất kỳ cách nào, bạn đồng ý rằng chúng tôi (các nhà phát triển hoặc người đóng góp cho Bread VM) và người tạo ra rom này hoặc các tệp này sẽ không chịu trách nhiệm cho bất kỳ sự cố ngoài ý muốn nào xảy ra với bạn và tài sản của bạn. Tuy nhiên, nếu người tạo ra rom này hoặc các tệp này được xác nhận là cố ý gây hại cho bạn hoặc bất kỳ ai khác, thì người tạo ra rom này hoặc các tệp này sẽ phải chịu trách nhiệm. Điều này cũng có nghĩa là bạn đã đồng ý với các Điều khoản và Chính sách của chủ sở hữu, nhà cung cấp hoặc các chủ sở hữu, nhà cung cấp của hệ điều hành hoặc các hệ điều hành có trong rom này.</string>
     <string name="i_agree">Tôi đồng ý</string>
     <string name="dont_miss_out">Đừng bỏ qua!</string>
     <string name="disclaimer_here">Khi bạn nhập bất kỳ rom nào hoặc sử dụng các tệp có chứa bất cứ thứ gì, bạn chấp nhận tất cả các điều khoản này. Nhấp vào đây để đọc toàn bộ.</string>
     <string name="join_now_on_telegram_if_you_want">Chúng tôi luôn ở đây. Bạn có thể tham gia bất cứ lúc nào.</string>
     <string name="donate">Ủng hộ</string>
-    <string name="donatecontent">Nếu bạn thật sự rất thích Vectras VM, bạn có thể cân nhắc ủng hộ chúng tôi trên Patreon! Cảm ơn bạn rất nhiều luôn!</string>
+    <string name="donatecontent">Nếu bạn thật sự rất thích Bread VM, bạn có thể cân nhắc ủng hộ chúng tôi trên Patreon! Cảm ơn bạn rất nhiều luôn!</string>
     <string name="you_are_ready_to_go">Bạn đã sẵn sàng để bắt đầu rồi đấy!</string>
     <string name="shared_folder_is_not_used_because_i386_does_not_support_it">Thư mục được chia sẻ không được sử dụng vì i386 không hỗ trợ nó.</string>
     <string name="use_uefi">Dùng UEFI</string>
@@ -299,7 +299,7 @@
     <string name="note_for_selecting_import">Bạn có thể nhập ngay bằng cách chọn tệp ở định dạng cvbi.</string>
     <string name="note_for_selecting_qemu">Tìm hiểu thêm về trình giả lập mã nguồn mở này.</string>
     <string name="create_command">Param Notebook</string>
-    <string name="note_for_selecting_create_command">Tạo máy ảo mới cho Vectras VM với khả năng tùy chỉnh dễ dàng hơn.</string>
+    <string name="note_for_selecting_create_command">Tạo máy ảo mới cho Bread VM với khả năng tùy chỉnh dễ dàng hơn.</string>
     <string name="import_or_choose_an_architecture_to_start_creating">Nhập hoặc chọn một kiến trúc để bắt đầu tạo.</string>
     <string name="set_arch_universal_note">Bạn nghĩ ở đây có kéo thả? Thử kéo và thả tệp cvbi vào thẻ Nhập thử đi.</string>
     <string name="copy" tools:override="true">Sao chép</string>
@@ -400,7 +400,7 @@
     <string name="error_ANOTHER_PROCESS_USING_IMAGE">Đã xảy ra lỗi và máy ảo không thể khởi động. Một tiến trình khác đang sử dụng một tập tin mà máy ảo này cũng cần. Hãy tìm và chấm dứt tiến trình đó.</string>
     <string name="could_not_create_dir_to_save_cvbi_content">Đã xảy ra lỗi. Không thể tạo thư mục để lưu tệp cvbi.</string>
     <string name="quick_start">Khởi động nhanh</string>
-    <string name="quick_start_description">Để khởi động nhanh hơn vào lần tiếp theo bạn mở Vectras VM nếu bạn không gỡ bỏ nó khỏi chế độ đa nhiệm.</string>
+    <string name="quick_start_description">Để khởi động nhanh hơn vào lần tiếp theo bạn mở Bread VM nếu bạn không gỡ bỏ nó khỏi chế độ đa nhiệm.</string>
     <string name="cpu_not_support_64_xfce">Hệ điều hành Android hoặc CPU trên thiết bị của bạn không hỗ trợ 64-bit, điều đó có nghĩa là bạn không thể sử dụng tính năng này.</string>
     <string name="the_file_could_not_be_processed_content">Không thể xử lý tệp tin, có thể do đường dẫn tệp tin không hợp lệ hoặc tệp tin bị hỏng. Vui lòng thử lại sau.</string>
     <string name="focus_or_defocus_the_qemu_window">Tập trung hoặc bỏ tập trung vào cửa sổ QEMU.</string>
@@ -448,7 +448,7 @@
     <string name="something_went_wrong">Có gì đó sai sai</string>
     <string name="the_setup_could_not_be_completed_and_below_is_the_log">Quá trình cài đặt không thể hoàn tất và nhật ký lỗi được hiển thị bên dưới.</string>
     <string name="this_option_is_temporarily_unavailable_because_the_server_cannot_be_connected">Tùy chọn này hiện không khả dụng vì không thể kết nối với máy chủ.</string>
-    <string name="vectras_vm_cannot_run_on_this_device">Vectras VM không thể hoạt động trên thiết bị này.</string>
+    <string name="bread_vm_cannot_run_on_this_device">Bread VM không thể hoạt động trên thiết bị này.</string>
     <string name="not_enough_storage_space">Nơi này quá chật chội rồi! Không còn đủ không gian lưu trữ.</string>
     <string name="there_are_no_logs">Không có nhập ký.</string>
     <string name="the_required_package_is_not_installed_content">Các gói cần thiết chưa được cài đặt, bạn cần cài đặt nó trước khi sử dụng tính năng này.</string>
@@ -459,7 +459,7 @@
     <string name="check_before_extract">Kiểm tra trước khi giải nén</string>
     <string name="check_before_extract_note">Phát hiện lỗi nhanh chóng để tránh lãng phí thời gian giải nén và các lỗi phát sinh sau khi giải nén.</string>
     <string name="checking">Đang kiểm tra…</string>
-    <string name="x11_display_cannot_be_used_at_this_time_content">Hiện tại không thể sử dụng màn hình X11, hãy thử đóng và mở lại Vectras VM.</string>
+    <string name="x11_display_cannot_be_used_at_this_time_content">Hiện tại không thể sử dụng màn hình X11, hãy thử đóng và mở lại Bread VM.</string>
     <string name="run_qemu_with_xterm">Chạy Qemu với Xterm</string>
     <string name="run_qemu_with_xterm_note">Giúp chạy các lệnh Qemu dễ dàng hơn mà không cần chuyển đổi.</string>
     <string name="quick_edit">Sửa nhanh</string>
@@ -519,7 +519,7 @@
     <string name="pause_vm_note">Trạng thái của máy ảo sẽ được lưu lại và tắt để tiết kiệm tài nguyên. Nó sẽ tiếp tục ở trạng thái này ở lần khởi động tiếp theo. Vui lòng không thay đổi, di chuyển hoặc xoá các tệp được dùng với máy ảo này cho đến lần khởi động tiếp theo.</string>
     <string name="pausing_vm_note">Đang tạm dừng máy ảo…\nĐừng rời khỏi đây.</string>
     <string name="resuming">Đang tiếp tục…</string>
-    <string name="vm_resume_error_note">Đã xảy ra sự cố khi tải trạng thái máy ảo đã tạm dừng trước đó để tiếp tục dùng. Nếu bạn đã chỉnh sửa máy ảo này hoặc các cài đặt Qemu trong cài đặt của Vectras VM trước khi khởi động, hãy kiểm tra sửa chúng giống như lúc lần cuối cùng máy ảo này được bật trước đó. Bạn muốn giữ hay xoá bản lưu trạng thái?</string>
+    <string name="vm_resume_error_note">Đã xảy ra sự cố khi tải trạng thái máy ảo đã tạm dừng trước đó để tiếp tục dùng. Nếu bạn đã chỉnh sửa máy ảo này hoặc các cài đặt Qemu trong cài đặt của Bread VM trước khi khởi động, hãy kiểm tra sửa chúng giống như lúc lần cuối cùng máy ảo này được bật trước đó. Bạn muốn giữ hay xoá bản lưu trạng thái?</string>
     <string name="keep_and_continue">Giữ và tiếp tục</string>
     <string name="remove_and_continue">Xoá và tiếp tục</string>
     <string name="vm_state_save_failed_note">Đã xảy ra lỗi và không thể lưu lại trạng thái của máy ảo. Hãy thử lại sau.</string>
@@ -713,6 +713,8 @@
     <string name="l2_cache_size_hint">Kích thước bộ đệm L2 (MB)</string>
     <string name="only_qcow2_format_is_supported">Chỉ hỗ trợ định dạng qcow2.</string>
     <string name="terminal_warning_content">Trước khi tiếp tục, hãy chắc chắn rằng bạn đang biết bạn thật sự đang làm gì. Bạn nên luôn kiểm tra lại các lệnh mà bạn sử dụng để chúng hoạt động đúng để chúng không gây ra các sự cố ngoài ý muốn. Đặc biệt, nếu đang có ai đó hướng dẫn bạn, hãy kiểm tra lại lệnh mà họ cung cấp cho bạn. Chúng tôi sẽ không chịu trách nhiệm nếu lệnh bạn đang sử dụng không phải do chúng tôi cung cấp và xảy ra bất cứ thiệt hại ngoài ý muốn nào xảy ra đối với bạn.</string>
+    <string name="switch_to_bread_vm">Chuyển sang Bread VM</string>
+    <string name="switch_to_bread_vm_content">Bạn có muốn chuyển các máy ảo sang Bread VM không?</string>
 
     <!--======================TERMUX STRINGS====================-->
     <string name="application_name" translatable="false">Vterm</string>

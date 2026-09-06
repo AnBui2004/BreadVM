@@ -21,7 +21,7 @@ android {
     compileSdk 37
 }
 
-android.namespace 'com.vectras.vm'
+android.namespace 'hey.bread.vm'
 android.defaultConfig.minSdkVersion 21
 android.buildFeatures.buildConfig true
 android.compileOptions.sourceCompatibility SDK_VERSION
@@ -41,7 +41,7 @@ keyStore.load(new FileInputStream(signingConfig.storeFile), signingConfig.keyPas
 
 android.defaultConfig.buildConfigField "String", "logTag", "\"Termux:X11 loader\""
 android.defaultConfig.buildConfigField "int", "SIGNATURE", String.valueOf(Arrays.hashCode(keyStore.getCertificate(signingConfig.keyAlias).getEncoded()))
-android.defaultConfig.buildConfigField "String", "CLASS_ID", "\"com.vectras.vm.x11.CmdEntryPoint\""
+android.defaultConfig.buildConfigField "String", "CLASS_ID", "\"hey.bread.vm.x11.CmdEntryPoint\""
 android.defaultConfig.buildConfigField "String", "packageNotInstalledErrorText",
         """\"Termux:X11 application is not found.\" +
         \"You should choose latest successful workflow here: https://github.com/termux/termux-x11/actions/workflows/debug_build.yml\" +
@@ -54,14 +54,14 @@ tasks.register('copyDebugApkToAssets', Copy) {
     from layout.buildDirectory.dir("outputs/apk/debug")
     from layout.buildDirectory.dir("intermediates/apk/debug") // Android Studio
 
-    into rootProject.layout.projectDirectory.dir("app/src/main/assets/bootstrap")
+    into rootProject.layout.projectDirectory.dir("app/src/main/assets/x11")
     include "**/*.apk"
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 tasks.register('copyReleaseApkToAssets', Copy) {
     from layout.buildDirectory.dir("outputs/apk/release")
-    into rootProject.layout.projectDirectory.dir("app/src/main/assets/bootstrap")
+    into rootProject.layout.projectDirectory.dir("app/src/main/assets/x11")
     include "**/*.apk"
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }

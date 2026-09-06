@@ -8,7 +8,7 @@ import java.io.IOException;
 import com.antlersoft.android.drawing.OverlappingCopy;
 import com.antlersoft.android.drawing.RectList;
 import com.antlersoft.util.ObjectPool;
-import com.vectras.qemu.Config;
+import hey.bread.qemu.Config;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

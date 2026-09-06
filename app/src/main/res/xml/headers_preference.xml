@@ -8,8 +8,8 @@
         android:title="@string/system"
         app:iconSpaceReserved="false">
         <intent
-            android:targetPackage="com.vectras.vm"
-            android:targetClass="com.vectras.vm.settings.SystemSettingsActivity" />
+            android:targetPackage="hey.bread.vm"
+            android:targetClass="hey.bread.vm.settings.SystemSettingsActivity" />
     </Preference>
     <Preference
         android:key="userinterface"
@@ -19,7 +19,7 @@
 
     <Preference
         android:key="qemu"
-        android:fragment="com.vectras.qemu.MainSettingsManager$QemuPreferencesFragment"
+        android:fragment="hey.bread.qemu.MainSettingsManager$QemuPreferencesFragment"
         android:title="@string/qemu"
         android:summary="@string/qemu_settings_description"
         app:iconSpaceReserved="false" />
@@ -29,8 +29,8 @@
         android:summary="@string/settings_for_vnc"
         app:iconSpaceReserved="false">
         <intent
-            android:targetPackage="com.vectras.vm"
-            android:targetClass="com.vectras.vm.settings.VNCSettingsActivity" />
+            android:targetPackage="hey.bread.vm"
+            android:targetClass="hey.bread.vm.settings.VNCSettingsActivity" />
     </Preference>
     <Preference
         android:key="x11display"
@@ -38,12 +38,12 @@
         android:summary="@string/settings_for_X11_display"
         app:iconSpaceReserved="false">
         <intent
-            android:targetPackage="com.vectras.vm"
-            android:targetClass="com.vectras.vm.settings.X11DisplaySettingsActivity" />
+            android:targetPackage="hey.bread.vm"
+            android:targetClass="hey.bread.vm.settings.X11DisplaySettingsActivity" />
     </Preference>
 <!--    <Preference-->
 <!--        android:key="x11"-->
-<!--        android:fragment="com.vectras.vm.x11.LoriePreferences$LoriePreferenceFragment"-->
+<!--        android:fragment="breadm.x11.LoriePreferences$LoriePreferenceFragment"-->
 <!--        android:title="@string/x11"-->
 <!--        android:summary="@string/x11_settings_description"-->
 <!--        app:iconSpaceReserved="false" />-->
@@ -53,7 +53,7 @@
         android:summary="@string/import_and_export_description"
         app:iconSpaceReserved="false">
         <intent
-            android:targetPackage="com.vectras.vm"
-            android:targetClass="com.vectras.vm.settings.ImportExportSettingsActivity" />
+            android:targetPackage="hey.bread.vm"
+            android:targetClass="hey.bread.vm.settings.ImportExportSettingsActivity" />
     </Preference>
 </PreferenceScreen>

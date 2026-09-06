@@ -21,9 +21,9 @@
 #-renamesourcefileattribute SourceFile
 -dontobfuscate
 -dontwarn org.slf4j.impl.StaticLoggerBinder
--keep class com.vectras.qemu.MainSettingsManager$UserInterfacePreferencesFragment { *; }
--keep class com.vectras.qemu.MainSettingsManager$QemuPreferencesFragment { *; }
--keep class com.vectras.qemu.MainSettingsManager$VncPreferencesFragment { *; }
+-keep class hey.bread.qemu.MainSettingsManager$UserInterfacePreferencesFragment { *; }
+-keep class hey.bread.qemu.MainSettingsManager$QemuPreferencesFragment { *; }
+-keep class hey.bread.qemu.MainSettingsManager$VncPreferencesFragment { *; }
 -keep class android.media.LoudnessCodecController { *; }
 -keepclassmembers class com.google.firebase.database.GenericTypeIndicator{*;}
 -keep class * extends com.google.firebase.database.GenericTypeIndicator{*;}

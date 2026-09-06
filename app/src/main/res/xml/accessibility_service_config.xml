@@ -6,5 +6,5 @@
     android:accessibilityFeedbackType="feedbackAllMask"
     android:notificationTimeout="50"
     android:canRetrieveWindowContent="true"
-    android:settingsActivity="com.vectras.vm.x11.LoriePreferences"
+    android:settingsActivity="hey.bread.vm.x11.LoriePreferences"
     android:canRequestFilterKeyEvents="true" />

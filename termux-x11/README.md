@@ -17,16 +17,16 @@ The reason we use `sd` instead of `patch` is that it is not complicated.
 
 ```bash
 cd termux-x11/lorie/src/main/cpp
-# Replace them so it works with Vectras VM.
-sd '_com_termux_x11_' '_com_vectras_vm_x11_' lorie/cmdentrypoint.cpp
-sd 'com/termux/x11/CmdEntryPoint' 'com/vectras/vm/x11/CmdEntryPoint' lorie/cmdentrypoint.cpp
-sd '/data/data/com.termux/' '/data/data/com.vectras.vm/' lorie/cmdentrypoint.cpp
-sd 'com/termux/x11/MainActivity' 'com/vectras/vm/x11/X11Activity' lorie/activity.cpp
-sd 'com/termux/x11/LorieView' 'com/vectras/vm/x11/LorieView' lorie/activity.cpp
-sd 'com.termux.x11' 'com.vectras.vm' lorie/activity.cpp
-sd 'com/termux/x11/LorieView' 'com/vectras/vm/x11/LorieView' lorie/renderer.cpp
-# Force the socket to open at `/data/data/com.vectras.vm/files/usr/tmp` instead of `/data/data/com.vectras.vm/cache` so that the Linux system running inside proot can see it.
-sd '// adb sets TMPDIR to /data/local/tmp which is pretty useless.' '\n    setenv("TMPDIR", "/data/data/com.vectras.vm/files/usr/tmp", 1);\n\n    // adb sets TMPDIR to /data/local/tmp which is pretty useless.' lorie/cmdentrypoint.cpp
+# Replace them so it works with Bread VM.
+sd '_com_termux_x11_' 'hey_bread_vm_x11_' lorie/cmdentrypoint.cpp
+sd 'com/termux/x11/CmdEntryPoint' 'hey/bread/vm/x11/CmdEntryPoint' lorie/cmdentrypoint.cpp
+sd '/data/data/com.termux/' '/data/data/hey.bread.vm/' lorie/cmdentrypoint.cpp
+sd 'com/termux/x11/MainActivity' 'hey/bread/vm/x11/X11Activity' lorie/activity.cpp
+sd 'com/termux/x11/LorieView' 'hey/bread/vm/x11/LorieView' lorie/activity.cpp
+sd 'com.termux.x11' 'hey.bread.vm' lorie/activity.cpp
+sd 'com/termux/x11/LorieView' 'hey/bread/vm/x11/LorieView' lorie/renderer.cpp
+# Force the socket to open at `/data/data/hey.bread.vm/files/usr/tmp` instead of `/data/data/hey.bread.vm/cache` so that the Linux system running inside proot can see it.
+sd '// adb sets TMPDIR to /data/local/tmp which is pretty useless.' '\n    setenv("TMPDIR", "/data/data/hey.bread.vm/files/usr/tmp", 1);\n\n    // adb sets TMPDIR to /data/local/tmp which is pretty useless.' lorie/cmdentrypoint.cpp
 # Disable abstract sockets to avoid conflicts with other X11 displays, such as Termux:X11 app.
 sd '#define HAVE_ABSTRACT_SOCKETS' '// #define HAVE_ABSTRACT_SOCKETS' libxtrans/Xtranssock.c
 ```
@@ -37,4 +37,4 @@ You should strip it to reduce its size.
 ```bash
 ~/Android/Sdk/ndk/*/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip --strip-unneeded termux-x11/lorie/build/intermediates/cxx/RelWithDebInfo/*/obj/*/libXlorie.so
 ```
-And now, copy them to the Vectras VM at `app/src/jniLibs`, and it is ready to use.
+And now, copy them to the Bread VM at `app/src/jniLibs`, and it is ready to use.

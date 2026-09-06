@@ -24,7 +24,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/settingz"
-        android:name="com.vectras.qemu.MainSettingsManager$AppPreferencesFragment"
+        android:name="hey.bread.qemu.MainSettingsManager$AppPreferencesFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"

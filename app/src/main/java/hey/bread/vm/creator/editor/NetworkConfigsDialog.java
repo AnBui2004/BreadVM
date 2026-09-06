@@ -1,0 +1,122 @@
+package hey.bread.vm.creator.editor;
+
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import hey.bread.qemu.MainSettingsManager;
+import hey.bread.vm.R;
+import hey.bread.vm.creator.utils.EditorUtils;
+import hey.bread.vm.creator.utils.VMCreatorSelector;
+import hey.bread.vm.databinding.CreatorNetworkDialogBinding;
+import hey.bread.vm.main.vms.DataMainRoms;
+import hey.bread.vm.utils.DialogUtils;
+
+import java.util.Objects;
+
+public class NetworkConfigsDialog extends BottomSheetDialogFragment {
+    final String TAG = "NetworkConfigsDialog";
+
+    String vmId;
+    DataMainRoms configs;
+
+    boolean isSave = true;
+
+    public void setConfigs(DataMainRoms configs) {
+        this.configs = configs;
+        if (configs != null) {
+            vmId = configs.vmID;
+        }
+    }
+
+    CreatorNetworkDialogBinding binding;
+
+    @NonNull
+    @Override
+    public BottomSheetDialog onCreateDialog(Bundle savedInstanceState) {
+        // This can happen after the app is freed from memory and then reopened.
+        if (configs == null) {
+            isSave = false;
+            if (savedInstanceState == null) DialogUtils.oopsDialog(requireActivity(), getString(R.string.something_went_wrong));
+            dismiss();
+            return EditorUtils.getDummyDialog(requireActivity());
+        }
+
+        binding = CreatorNetworkDialogBinding.inflate(getLayoutInflater());
+
+        BottomSheetDialog dialog = new BottomSheetDialog(requireActivity());
+        dialog.setContentView(binding.getRoot());
+
+        initialize();
+
+        dialog.setOnShowListener(d -> {
+            BottomSheetBehavior<FrameLayout> behavior = dialog.getBehavior();
+            behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            behavior.setSkipCollapsed(true);
+        });
+
+        return dialog;
+    }
+
+    NetworkConfigsDialogCallback callback;
+
+    public void setOnDismiss(NetworkConfigsDialogCallback callback) {
+        this.callback = callback;
+    }
+
+    public interface NetworkConfigsDialogCallback {
+        void onDismiss(DataMainRoms configs);
+    }
+
+    public void onDismiss(@NonNull DialogInterface dialogInterface) {
+        super.onDismiss(dialogInterface);
+        if (callback != null && isSave) {
+            save();
+            callback.onDismiss(configs);
+        }
+    }
+
+    // Auto save.
+    public void onPause() {
+        super.onPause();
+        if (callback != null && isSave) {
+            save();
+            callback.onDismiss(configs);
+        }
+    }
+
+    private void initialize() {
+        if (!isAdded()) return;
+
+        binding.sbvCardType.setOnClickListener(v -> VMCreatorSelector.networkCard(requireActivity(), configs.networkCard, ((position, name, value) -> {
+            configs.networkCard = position;
+            binding.sbvCardType.setSubtitle(name);
+        })));
+
+        load();
+    }
+
+    private void load() {
+        if (!isAdded()) return;
+
+        binding.sbvCardType.setSubtitle(Objects.requireNonNull(VMCreatorSelector.getNetworkCard(requireActivity(), configs.networkCard).get("name")).toString());
+
+        if (MainSettingsManager.getArch(requireContext()).equals(MainSettingsManager.PPC_ARCH)) {
+            binding.cbvWifiCardDummy.setVisibility(View.GONE);
+            binding.sbvCardType.setBackground(AppCompatResources.getDrawable(requireContext(), R.drawable.object_shape_single_high));
+        } else {
+            binding.cbvWifiCardDummy.setChecked(configs.wifi);
+        }
+    }
+
+    private void save() {
+        configs.wifi = binding.cbvWifiCardDummy.isChecked();
+    }
+}

@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">فيكترا</string>
 
-    <!--======================VECTRAS STRINGS====================-->
+    <!--======================BREAD STRINGS====================-->
     <!-- logger -->
     <string name="startvm">تم بدء VM!</string>
     <string name="stopvm">تم إيقاف VM!</string>
@@ -22,7 +22,7 @@
     <string name="name">الاسم</string>
     <string name="size">الحجم:</string>
     <string name="welcome">"مرحبًا!"</string>
-    <string name="vectras_website">موقع Vectras</string>
+    <string name="bread_website">موقع Bread</string>
     <string name="about">حول</string>
     <string name="settings">الإعدادات</string>
     <string name="username">اسم المستخدم</string>
@@ -149,7 +149,7 @@
     <string name="killqemu">إيقاف QEMU</string>
     <string name="installing">جارٍ التثبيت...</string>
     <string name="setup_sound">إعداد الصوت لـTermux</string>
-    <string name="setup_sound_guide_content">هذا يمكّن الآلات الافتراضية التي تعمل على Vectras VM من تشغيل الصوت باستخدام Termux. إذا لم تقم بإعداد Termux بعد، حدد بدء الإعداد، سيتم نسخ الأمر تلقائيًا إلى الحافظة، تحتاج إلى لصق هذا الأمر وتشغيله في Termux لإكمال الإعداد. في المرات القادمة، تأكد من تشغيل Termux لتشغيل الصوت.</string>
+    <string name="setup_sound_guide_content">هذا يمكّن الآلات الافتراضية التي تعمل على Bread VM من تشغيل الصوت باستخدام Termux. إذا لم تقم بإعداد Termux بعد، حدد بدء الإعداد، سيتم نسخ الأمر تلقائيًا إلى الحافظة، تحتاج إلى لصق هذا الأمر وتشغيله في Termux لإكمال الإعداد. في المرات القادمة، تأكد من تشغيل Termux لتشغيل الصوت.</string>
     <string name="copied">تم النسخ.</string>
     <string name="start_setup">بدء الإعداد</string>
     <string name="termux_is_not_installed">Termux غير مثبت</string>

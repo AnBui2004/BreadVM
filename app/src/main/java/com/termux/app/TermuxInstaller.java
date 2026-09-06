@@ -11,7 +11,7 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.WindowManager;
 
-import com.vectras.vm.R;
+import hey.bread.vm.R;
 import com.termux.terminal.EmulatorDebug;
 
 import java.io.BufferedReader;

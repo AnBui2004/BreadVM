@@ -3,9 +3,7 @@
  */
 package android.androidVNC;
 
-import com.vectras.qemu.Config;
-import com.vectras.qemu.VNCConfig;
-import com.vectras.vm.VectrasApp;
+import hey.bread.qemu.Config;
 
 import android.widget.ImageView.ScaleType;
 
@@ -21,7 +19,7 @@ public class ConnectionBean {
 	private String colorModel = COLORMODEL.C24bit.nameString();
 	private String InputMode = VncCanvasActivity.TOUCH_ZOOM_MODE;
 	private String scaleMode = "";
-	private String nickname = "vectras";
+	private String nickname = "bread";
 	private long forceFull = 0;
 	public static boolean useLocalCursor = false;
 	private boolean followMouse = true;

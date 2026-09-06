@@ -1,0 +1,57 @@
+package hey.bread.vm.utils;
+
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+import hey.bread.vm.AppConfig;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class JSONUtils {
+    private static final String TAG = "JSONUtils";
+
+    public static boolean isValidFromString(String _content) {
+        try {
+            JsonElement element = JsonParser.parseString(_content);
+            return element != null;
+        } catch (Exception e) {
+            Log.e(TAG, "isValidFromString: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean isValidFromFile(String _filepath) {
+        if (FileUtils.isFileExists(_filepath)) {
+            return isValidFromString(FileUtils.readAFile(_filepath));
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean isValidArray(String content) {
+        if (content == null || content.trim().isEmpty()) {
+            return false;
+        }
+
+        try {
+            return JsonParser.parseString(content).isJsonArray();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean isValidVmList() {
+        try {
+            String jsonRaw = FileUtils.readAFile(AppConfig.romsdatajson);
+            ArrayList<HashMap<String, Object>> vmList = new Gson().fromJson(jsonRaw, new TypeToken<ArrayList<HashMap<String, Object>>>() {
+            }.getType());
+            return isValidArray(jsonRaw);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+}

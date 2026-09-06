@@ -205,7 +205,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
-            <com.vectras.vm.view.SwitchView
+            <hey.bread.vm.view.SwitchView
                 android:id="@+id/sv_shared_folder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

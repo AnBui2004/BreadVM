@@ -46,8 +46,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.vectras.vm.AppConfig;
-import com.vectras.vm.R;
+import hey.bread.vm.AppConfig;
+import hey.bread.vm.R;
 import com.termux.terminal.EmulatorDebug;
 import com.termux.terminal.TerminalColors;
 import com.termux.terminal.TerminalSession;
@@ -209,7 +209,7 @@ public final class TermuxActivity extends Activity implements ServiceConnection 
         mSettings = new TermuxPreferences(this);
         mIsUsingBlackUI = mSettings.isUsingBlackUI();
         if (mIsUsingBlackUI) {
-            this.setTheme(R.style.Theme_Vectras_Black);
+            this.setTheme(R.style.ThemeBlack);
         } else {
             this.setTheme(R.style.AppTheme);
         }

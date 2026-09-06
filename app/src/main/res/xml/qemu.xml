@@ -73,7 +73,7 @@
             android:defaultValue="false"
             android:title="@string/shared_folder"
             android:key="sharedFolder"
-            android:summary="/Documents/VectrasVM/SharedFolder/"
+            android:summary="/Documents/BreadVM/SharedFolder/"
             app:icon="@drawable/round_folder_24" />
         <EditTextPreference
             android:layout_width="wrap_content"

@@ -5,6 +5,7 @@ plugins {
     id 'com.google.android.gms.oss-licenses-plugin'
 }
 
+// For security reasons, you need to generate your own private key.
 // Optional signing override: put a keystore.properties file at the repo root
 // (gitignored) with storeFile / storePassword / keyAlias / keyPassword to sign
 // with a private keystore, e.g. after rotating the public one. Without that
@@ -15,23 +16,23 @@ def keystorePropsFile = rootProject.file('keystore.properties')
 if (keystorePropsFile.exists()) {
     keystorePropsFile.withInputStream { keystoreProps.load(it) }
 }
-def vectrasStoreFile = keystoreProps['storeFile'] ?: '../testkey.jks'
-def vectrasStorePassword = keystoreProps['storePassword'] ?: '856856'
-def vectrasKeyAlias = keystoreProps['keyAlias'] ?: 'vectras'
-def vectrasKeyPassword = keystoreProps['keyPassword'] ?: '856856'
+def breadStoreFile = keystoreProps['storeFile'] ?: '../testkey.jks'
+def breadStorePassword = keystoreProps['storePassword'] ?: 'test'
+def breadKeyAlias = keystoreProps['keyAlias'] ?: 'test'
+def breadKeyPassword = keystoreProps['keyPassword'] ?: 'test'
 
 android {
-    namespace 'com.vectras.vm'
+    namespace 'hey.bread.vm'
     compileSdk = 37
 
     def versionSuffix = project.hasProperty('versionSuffix') ? project.property('versionSuffix').toString().trim() : ""
 
     defaultConfig {
-        applicationId "com.vectras.vm"
+        applicationId "hey.bread.vm"
         minSdk minApi
         targetSdk targetApi
-        versionCode 177
-        versionName "4.7.0" + (versionSuffix ? "-${versionSuffix}" : "")
+        versionCode 1
+        versionName "1.0.0" + (versionSuffix ? "-${versionSuffix}" : "")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 
@@ -41,20 +42,20 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file(vectrasStoreFile)
-            keyAlias vectrasKeyAlias
-            storePassword vectrasStorePassword
-            keyPassword vectrasKeyPassword
+            storeFile file(breadStoreFile)
+            keyAlias breadKeyAlias
+            storePassword breadStorePassword
+            keyPassword breadKeyPassword
             v1SigningEnabled true
             v2SigningEnabled true
             enableV3Signing true
             enableV4Signing true
         }
         release {
-            storeFile file(vectrasStoreFile)
-            keyAlias vectrasKeyAlias
-            storePassword vectrasStorePassword
-            keyPassword vectrasKeyPassword
+            storeFile file(breadStoreFile)
+            keyAlias breadKeyAlias
+            storePassword breadStorePassword
+            keyPassword breadKeyPassword
             v1SigningEnabled true
             v2SigningEnabled true
             enableV3Signing true
@@ -84,7 +85,8 @@ android {
 
     splits {
         abi {
-            enable false
+            include 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'
+            universalApk true
         }
     }
 
@@ -106,6 +108,12 @@ android {
     lint {
         abortOnError false
         checkReleaseBuilds false
+    }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
     }
 }
 
@@ -176,17 +184,17 @@ afterEvaluate {
                 preferences << [ type: 'Boolean',  key: node.getAttribute("app:key"), default: node.getAttribute("app:defaultValue") ]
         }
 
-        def out = file('build/generated/java/com/vectras/vm/x11/Prefs.java')
+        def out = file('build/generated/java/hey/bread/vm/x11/Prefs.java')
         out.getParentFile().exists() || out.getParentFile().mkdirs()
         out.delete()
         out.createNewFile()
 
-        out << 'package com.vectras.vm.x11;\n'
+        out << 'package hey.bread.vm.x11;\n'
         out << 'import java.util.HashMap;\n'
         out << 'import android.content.Context;\n'
         out << 'import android.content.SharedPreferences;\n'
-        out << 'import com.vectras.vm.x11.utils.TermuxX11ExtraKeys;\n'
-        out << 'import com.vectras.vm.R;\n'
+        out << 'import hey.bread.vm.x11.utils.TermuxX11ExtraKeys;\n'
+        out << 'import hey.bread.vm.R;\n'
         out << '\n'
         out << 'public class Prefs extends LoriePreferences.PrefsProto {\n'
         preferences.each {

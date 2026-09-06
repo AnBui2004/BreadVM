@@ -1,0 +1,62 @@
+package hey.bread.vm.utils;
+
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.util.Log;
+
+import hey.bread.vm.AppConfig;
+
+public class PackageUtils {
+    private static final String TAG = "PackageUtil";
+
+    public static boolean isInstalled(String packagename, Context context) {
+        PackageManager pm = context.getPackageManager();
+        try {
+            pm.getPackageInfo(packagename,PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return  false;
+        }
+    }
+
+    public static int getVersionCode(String packageName, Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
+            return packageInfo.versionCode;
+        } catch (Exception e){
+            Log.e(TAG, "getVersionCode: ", e);
+        }
+        return 0;
+    }
+
+    public static int getThisVersionCode(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionCode;
+        } catch (Exception ignored){
+
+        }
+        return AppConfig.appVersionCode;
+    }
+
+    public static String getThisVersionName(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionName;
+        } catch (Exception ignored){
+
+        }
+        return AppConfig.appVersion;
+    }
+
+    public static boolean isClassAvailable(String className) {
+        try {
+            Class.forName(className);
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
+
+}

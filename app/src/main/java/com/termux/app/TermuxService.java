@@ -21,8 +21,8 @@ import android.provider.Settings;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 
-import com.vectras.vm.AppConfig;
-import com.vectras.vm.R;
+import hey.bread.vm.AppConfig;
+import hey.bread.vm.R;
 import com.termux.terminal.EmulatorDebug;
 import com.termux.terminal.TerminalSession;
 import com.termux.terminal.TerminalSession.SessionChangedCallback;
@@ -300,9 +300,10 @@ public final class TermuxService extends Service implements SessionChangedCallba
             }
 
             if (executablePath == null) {
-                // Fall back to system shell as last resort:
-                executablePath = TermuxService.PREFIX_PATH + "/bin/vectras-pd";
+                executablePath = "/system/bin/sh";
+                arguments = new String[]{ TermuxService.PREFIX_PATH + "/bin/bread-pd" };
             }
+
             isLoginShell = true;
         }
 

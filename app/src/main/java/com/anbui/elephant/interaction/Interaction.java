@@ -28,9 +28,9 @@ import java.util.Set;
 public class Interaction {
     private final String TAG = "com.anbui.elephant.interaction.Interaction";
     private final String EGG_URL = "https://anbui.ovh/egg/";
-    private String GET_URL = EGG_URL + "contentinfo?id=%s&app=vectrasvm";
-    private final String VIEW_URL = EGG_URL + "updateview?app=vectrasvm";
-    private final String LIKE_URL = EGG_URL + "updatelike?app=vectrasvm";
+    private String GET_URL = EGG_URL + "contentinfo?id=%s&app=breadvm";
+    private final String VIEW_URL = EGG_URL + "updateview?app=breadvm";
+    private final String LIKE_URL = EGG_URL + "updatelike?app=breadvm";
 
     private final String contentId;
     private DataInteraction dataInteraction;

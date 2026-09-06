@@ -60,7 +60,7 @@ jobs:
           if [[ -n "${{ secrets.TELEGRAM_BOT_TOKEN }}" ]]; then
             curl -s -o /dev/null -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
               -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d message_thread_id=${{ secrets.TELEGRAM_THREAD_ID }} \
-              -d $'text=New commit! Starting to build Vectras VM on GitHub.\nPlease wait about 5 minutes.\nRun ID: '${GITHUB_RUN_ID}
+              -d $'text=New commit! Starting to build Bread VM on GitHub.\nPlease wait about 5 minutes.\nRun ID: '${GITHUB_RUN_ID}
           fi
 
       - name: Create google-services.json
@@ -72,15 +72,15 @@ jobs:
           {
             "project_info": {
               "project_number": "123456789000",
-              "project_id": "vectras-ci-placeholder",
-              "storage_bucket": "vectras-ci-placeholder.appspot.com"
+              "project_id": "bread-ci-placeholder",
+              "storage_bucket": "bread-ci-placeholder.appspot.com"
             },
             "client": [
               {
                 "client_info": {
                   "mobilesdk_app_id": "1:123456789000:android:0000000000000000",
                   "android_client_info": {
-                    "package_name": "com.vectras.vm"
+                    "package_name": "com.bread.vm"
                   }
                 },
                 "oauth_client": [],
@@ -109,12 +109,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pr-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/*.apk
 
       - name: Notify Telegram with release link
         run: |
           if [[ -n "${{ secrets.TELEGRAM_BOT_TOKEN }}" ]]; then
             curl -s -o /dev/null -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
               -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} -d message_thread_id=${{ secrets.TELEGRAM_THREAD_ID }} \
-              -d $'text=Build complete! View the commits here: https://github.com/AnBui2004/Vectras-VM-Emu-Android/commits'
+              -d $'text=Build complete! View the commits here: https://github.com/AnBui2004/Bread-VM-Emu-Android/commits'
           fi

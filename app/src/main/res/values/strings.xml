@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vectras VM</string>
+    <string name="app_name">Bread VM</string>
 
-    <!--======================VECTRAS STRINGS====================-->
+    <!--======================BREAD STRINGS====================-->
     <string name="qemu_version" translatable="false">Stable</string>
     <!-- logger -->
     <string name="startvm">VM STARTED!</string>
@@ -12,7 +12,7 @@
 
     <string name="qemu_console_head" translatable="false">compat_monitor1 console\nQemu monitor - type \'help\' for more information\n(qemu)</string>
 
-    <string name="desktopInstructions">To use External Mouse:\n\tDisable Mouse Acceleration inside the Guest OS.\n\t\tFor DSL use command: xset m 1\n"\t\tFor Other OSes disable \"Enhance pointer Precision\" or choose Mouse \"usb-tablet\" from Vectras main options.\n\tPlug in or Pair your USB/Bluetooth Mouse and press OK\n\tMove your mouse pointer to all desktop sides to calibrate.\n"</string>
+    <string name="desktopInstructions">To use External Mouse:\n\tDisable Mouse Acceleration inside the Guest OS.\n\t\tFor DSL use command: xset m 1\n"\t\tFor Other OSes disable \"Enhance pointer Precision\" or choose Mouse \"usb-tablet\" from Bread main options.\n\tPlug in or Pair your USB/Bluetooth Mouse and press OK\n\tMove your mouse pointer to all desktop sides to calibrate.\n"</string>
 
     <string name="navigation_drawer_open">Drawer open</string>
     <string name="navigation_drawer_close">Drawer close</string>
@@ -26,7 +26,7 @@
     <string name="keyboard">Keyboard</string>
     <string name="name">name</string>
     <string name="size">size:</string>
-    <string name="vectras_website">Vectras website</string>
+    <string name="bread_website">Bread website</string>
     <string name="about">About</string>
     <string name="settings">Settings</string>
     <string name="username">USERNAME</string>
@@ -164,7 +164,7 @@
     <string name="killqemu">Kill QEMU</string>
     <string name="installing">Installing…</string>
     <string name="setup_sound">Setup sound for Termux</string>
-    <string name="setup_sound_guide_content">This enables virtual machines running on the Vectras VM to play audio using Termux. If you have not set up Termux yet, select Start setup, the command will be automatically copied to the clipboard, you need paste that command and run it in Termux to complete the setup. Next times, make sure Termux is running to play sound.</string>
+    <string name="setup_sound_guide_content">This enables virtual machines running on the Bread VM to play audio using Termux. If you have not set up Termux yet, select Start setup, the command will be automatically copied to the clipboard, you need paste that command and run it in Termux to complete the setup. Next times, make sure Termux is running to play sound.</string>
     <string name="copied">Copied.</string>
     <string name="start_setup">Start setup</string>
     <string name="termux_is_not_installed">Termux is not installed</string>
@@ -218,7 +218,7 @@
     <string name="file_format_is_not_supported_floppy_drive">Things may not work because the file format is not supported. Commonly supported formats include img, flp and ima. Do you want to continue?</string>
     <string name="error_PROOT_IS_MISSING_0">The system is not working, necessary files are missing. This problem may be caused by incorrect setup. Do you want to try the setup again? Error code: PROOT_IS_MISSING_0.</string>
     <string name="error_DRIVE_INDEX_0_EXISTS">An error occurred and the virtual machine cannot start. There are two or more drives that cannot be plugged into the same slot. Please check your virtual machine settings and make sure all drives are not plugged into the same slot. Error code: DRIVE_INDEX_0_EXISTS.</string>
-    <string name="error_X11_NOT_AVAILABLE">An error occurred and the virtual machine is not running. The X11 display is temporarily unavailable, please exit the Vectras VM and come back to try again. You can try switching to VNC which is more stable. Error code: X11_NOT_AVAILABLE.</string>
+    <string name="error_X11_NOT_AVAILABLE">An error occurred and the virtual machine is not running. The X11 display is temporarily unavailable, please exit the Bread VM and come back to try again. You can try switching to VNC which is more stable. Error code: X11_NOT_AVAILABLE.</string>
     <string name="switched_to_VNC">Switched to VNC. You can try running the virtual machine again now.</string>
     <string name="restore">Restore</string>
     <string name="restore_content">Deleted virtual machines will be restored if you previously chose to keep all files.</string>
@@ -256,13 +256,13 @@
     <string name="mirrors">Mirrors</string>
     <string name="letstart">Let\'s start</string>
     <string name="welcome">Welcome!</string>
-    <string name="welcome_to_vectras_vm_lets_get_started">Welcome to Vectras VM. Let\'s get started!</string>
+    <string name="welcome_to_bread_vm_lets_get_started">Welcome to Bread VM. Let\'s get started!</string>
     <string name="processing_this_may_take_a_few_minutes">Processing...\nThis may take a few minutes.</string>
     <string name="update">Update</string>
     <string name="ok">OK</string>
     <string name="you_are_using_beta_version">You are using Beta version</string>
     <string name="switch_to_check_for_updates_on_the_Beta_channel_now">Switch to check for updates on the Beta channel now.</string>
-    <string name="you_need_to_complete_vectras_vm_setup_before_importing_this_file">You need to complete Vectras VM setup before importing this file.</string>
+    <string name="you_need_to_complete_bread_vm_setup_before_importing_this_file">You need to complete Bread VM setup before importing this file.</string>
     <string name="unable_to_create_the_directory_to_create_the_vm">Unable to create directory to create virtual machine, this may be because you have not granted permission, there is not enough free space of internal storage or other.</string>
     <string name="with">With</string>
     <string name="not_the_command_to_run_qemu">Not the command to run Qemu.</string>
@@ -274,13 +274,13 @@
     <string name="command_are_not_allowed_to_contain_redirection">Commands are not allowed to contain \"&gt;\" or \"&lt;\".</string>
     <string name="reason">Reason</string>
     <string name="size_too_large_try_qcow2_format">Size too large, try qcow2 format.</string>
-    <string name="disclaimer_when_using_rom">By using any files of this ROM or any files containing anything in any way, you agree that we (developers or contributors to Vectras VM) and the creator or creators of this ROM or these files will not be responsible for any unintended problems that will happen to you and your things. But if the creator or creators of this ROM or these files are confirmed to intentionally want to cause harm to you or anyone else, the creator or creators of this ROM or these files will be responsible. And it also means that you have agreed to the Terms and Policies of the owner, provider or owners, providers of the operating system or operating systems contained in this ROM.</string>
+    <string name="disclaimer_when_using_rom">By using any files of this ROM or any files containing anything in any way, you agree that we (developers or contributors to Bread VM) and the creator or creators of this ROM or these files will not be responsible for any unintended problems that will happen to you and your things. But if the creator or creators of this ROM or these files are confirmed to intentionally want to cause harm to you or anyone else, the creator or creators of this ROM or these files will be responsible. And it also means that you have agreed to the Terms and Policies of the owner, provider or owners, providers of the operating system or operating systems contained in this ROM.</string>
     <string name="i_agree">I agree</string>
     <string name="dont_miss_out">Don\'t miss out!</string>
     <string name="disclaimer_here">When you import any ROM or use files that contain anything, you accept all of this. Click here to read it all.</string>
     <string name="join_now_on_telegram_if_you_want">We\'re always here. You can join anytime.</string>
     <string name="donate">Donate</string>
-    <string name="donatecontent">If you really like Vectras VM, you can donate to us on Patreon. Thanks a lot!</string>
+    <string name="donatecontent">If you really like Bread VM, you can donate to us on Patreon. Thanks a lot!</string>
     <string name="you_are_ready_to_go">You are ready to go!</string>
     <string name="shared_folder_is_not_used_because_i386_does_not_support_it">Shared Folder is not used because i386 does not support it.</string>
     <string name="use_uefi">Use UEFI</string>
@@ -312,7 +312,7 @@
     <string name="note_for_selecting_import">You can import now by selecting the file in cvbi format.</string>
     <string name="note_for_selecting_qemu">Learn more about this open source emulator.</string>
     <string name="create_command">Param Notebook</string>
-    <string name="note_for_selecting_create_command">Create new virtual machines for Vectras VM with easier customization.</string>
+    <string name="note_for_selecting_create_command">Create new virtual machines for Bread VM with easier customization.</string>
     <string name="import_or_choose_an_architecture_to_start_creating">Import or choose an architecture to start creating.</string>
     <string name="set_arch_universal_note">You can drag and drop cvbi file to Import card to import.</string>
     <string name="copy">Copy</string>
@@ -413,7 +413,7 @@
     <string name="error_ANOTHER_PROCESS_USING_IMAGE">An error occurred and the virtual machine could not be started. Another process is using a file that this virtual machine also needs. Find and terminate that process.</string>
     <string name="could_not_create_dir_to_save_cvbi_content">Something went wrong. Could not create directory to save cvbi file.</string>
     <string name="quick_start">Quick start</string>
-    <string name="quick_start_description">To start up faster the next time you open Vectras VM if you don\'t remove it from multitasking.</string>
+    <string name="quick_start_description">To start up faster the next time you open Bread VM if you don\'t remove it from multitasking.</string>
     <string name="cpu_not_support_64_xfce">Your device\'s Android OS or CPU doesn\'t support 64-bit, which means you can\'t use this feature.</string>
     <string name="the_file_could_not_be_processed_content">The file could not be processed, possibly due to an invalid file path or a corrupted file. Please try again later.</string>
     <string name="focus_or_defocus_the_qemu_window">Focus or defocus the QEMU window</string>
@@ -461,7 +461,7 @@
     <string name="something_went_wrong">Something went wrong</string>
     <string name="the_setup_could_not_be_completed_and_below_is_the_log">The setup could not be completed and below is the log.</string>
     <string name="this_option_is_temporarily_unavailable_because_the_server_cannot_be_connected">This option is temporarily unavailable because the server cannot be connected.</string>
-    <string name="vectras_vm_cannot_run_on_this_device">Vectras VM cannot run on this device.</string>
+    <string name="bread_vm_cannot_run_on_this_device">Bread VM cannot run on this device.</string>
     <string name="not_enough_storage_space">Not enough storage space.</string>
     <string name="there_are_no_logs">There are no logs.</string>
     <string name="the_required_package_is_not_installed_content">The required package is not installed, you need to install it before using this feature.</string>
@@ -472,7 +472,7 @@
     <string name="check_before_extract">Check before extract</string>
     <string name="check_before_extract_note">Quickly detect errors to avoid wasting time decompressing and errors occurring after decompression.</string>
     <string name="checking">Checking…</string>
-    <string name="x11_display_cannot_be_used_at_this_time_content">X11 display cannot be used at this time, try closing and reopening the Vectras VM.</string>
+    <string name="x11_display_cannot_be_used_at_this_time_content">X11 display cannot be used at this time, try closing and reopening the Bread VM.</string>
     <string name="run_qemu_with_xterm">Run Qemu with Xterm</string>
     <string name="run_qemu_with_xterm_note">To run commands with Qemu monitor easier without switching.</string>
     <string name="quick_edit">Quick edit</string>
@@ -532,7 +532,7 @@
     <string name="pause_vm_note">The virtual machine\'s state will be saved and shut down to conserve resources. It will remain in this state on the next boot. Please do not change, move, or delete files used with this virtual machine.</string>
     <string name="pausing_vm_note">VM is pausing…\nDon\'t leave here.</string>
     <string name="resuming">Resuming…</string>
-    <string name="vm_resume_error_note">An issue occurred while resuming loading of previously paused virtual machine state. If you modified this virtual machine or Qemu settings in the Vectras VM setup before booting, please check that you changed them to the same settings as the last time this virtual machine was powered on. Do you want to keep or remove the saved state?</string>
+    <string name="vm_resume_error_note">An issue occurred while resuming loading of previously paused virtual machine state. If you modified this virtual machine or Qemu settings in the Bread VM setup before booting, please check that you changed them to the same settings as the last time this virtual machine was powered on. Do you want to keep or remove the saved state?</string>
     <string name="keep_and_continue">Keep and continue</string>
     <string name="remove_and_continue">Remove and continue</string>
     <string name="vm_state_save_failed_note">An error occurred and the virtual machine\'s state could not be saved. Please try again later.</string>
@@ -736,6 +736,8 @@
     <string name="l2_cache_size_hint">L2 cache size (MB)</string>
     <string name="only_qcow2_format_is_supported">Only the qcow2 format is supported.</string>
     <string name="terminal_warning_content">Before continue, ensure you fully understand what you are doing. You should alway double-check the commands you use to ensure they function correctly and do not cause unintended issues. In particular, if someone is guiding you, double-check the commands they provide. We accept no responsibility for any unintended damage resulting from the use of commands not provided by us.</string>
+    <string name="switch_to_bread_vm">Switch to Bread VM</string>
+    <string name="switch_to_bread_vm_content">Do you want to move the virtual machines to Bread VM?</string>
 
 
     <!--======================TERMUX STRINGS====================-->

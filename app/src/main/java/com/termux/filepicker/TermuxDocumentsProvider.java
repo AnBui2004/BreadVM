@@ -11,7 +11,7 @@ import android.provider.DocumentsContract.Root;
 import android.provider.DocumentsProvider;
 import android.webkit.MimeTypeMap;
 
-import com.vectras.vm.R;
+import hey.bread.vm.R;
 import com.termux.app.TermuxService;
 
 import java.io.File;

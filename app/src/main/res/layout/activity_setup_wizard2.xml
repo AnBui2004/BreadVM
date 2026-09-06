@@ -18,8 +18,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/vectras_vm_96px"
-            app:tint="?attr/colorPrimary" />
+            android:src="@drawable/bread_vm_96px" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -30,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_to_vectras_vm_lets_get_started" />
+            android:text="@string/welcome_to_bread_vm_lets_get_started" />
 
         <LinearLayout
             android:layout_width="match_parent"

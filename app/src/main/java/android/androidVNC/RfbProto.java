@@ -32,7 +32,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
 
-import com.vectras.qemu.Config;
+import hey.bread.qemu.Config;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
@@ -180,19 +180,19 @@ public class RfbProto {
   int port;
   Socket sock;
   DataInputStream is;
-  VectrasOutputStream os;
+  BreadOutputStream os;
   private OutputStream sos;
   
-  //Vectras: need to send the network operations of the Main UI
+  //  Need to send the network operations of the Main UI
   //  but also use a mechanism like IntentService to keep
   //  the network message queue intact
-	class VectrasOutputStream {
+	class BreadOutputStream {
 
       OutputStream os;
       HandlerThread rfbQueueThread;
       Handler handler;
 
-      public VectrasOutputStream(OutputStream sos) {
+      public BreadOutputStream(OutputStream sos) {
 			os = sos;
 
             rfbQueueThread = new HandlerThread("RfbQueue");
@@ -350,7 +350,7 @@ public class RfbProto {
           sos = sock.getOutputStream();
       }
 
-    os = new VectrasOutputStream(sos);
+    os = new BreadOutputStream(sos);
 
     timing = false;
     timeWaitedIn100us = 5;
@@ -363,7 +363,7 @@ public class RfbProto {
     try {
       os.close();
     } catch (Exception ex) {
-      Log.e(TAG, "Error while closing VectrasOutputStream", ex);
+      Log.e(TAG, "Error while closing BreadOutputStream", ex);
     }
 
     if (localSocket != null) {

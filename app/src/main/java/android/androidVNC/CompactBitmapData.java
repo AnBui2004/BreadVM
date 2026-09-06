@@ -10,7 +10,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.vectras.qemu.Config;
+import hey.bread.qemu.Config;
 
 /**
  * @author Michael A. MacDonald

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.vectras.vm.BuildConfig;
+import hey.bread.vm.BuildConfig;
 
 import java.io.BufferedReader;
 import java.io.File;

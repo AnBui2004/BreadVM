@@ -195,7 +195,7 @@
         app:layout_constraintBottom_toTopOf="@id/enterGameBtn"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <com.vectras.vm.widgets.JoystickView
+    <hey.bread.vm.widgets.JoystickView
         xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/joyStick"
         android:layout_width="150dp"

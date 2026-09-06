@@ -8,10 +8,10 @@ async function sendNotification() {
   try {
     const res = await admin.messaging().send({
       data: {
-        title: "Vectras VM",
+        title: "Bread VM",
         message: "Welcome!",
-        image: "https://github.com/xoureldeen/Vectras-VM-Android/blob/master/resources/vectrasvm.png",
-        url: "https://github.com/xoureldeen/Vectras-VM-Android",
+        image: "",
+        url: "https://github.com/AnBui2004/BreadVM",
         //activityClass: "update",
         //targetVersions: "4.1.0,4.2.0",
         targetVersions: ""

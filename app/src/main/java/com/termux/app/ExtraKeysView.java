@@ -29,7 +29,7 @@ import android.widget.GridLayout;
 import android.widget.PopupWindow;
 
 import com.google.android.material.button.MaterialButton;
-import com.vectras.vm.R;
+import hey.bread.vm.R;
 import com.termux.view.TerminalView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
