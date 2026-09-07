@@ -36,7 +36,7 @@
                 android:paddingBottom="16dp"
                 android:text="@string/input_devices" />
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_usb_controller"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 app:subtitle="@string/defaulttext"
                 android:background="@drawable/object_shape_single_high"/>
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_mouse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 app:subtitle="@string/defaulttext"
                 android:background="@drawable/object_shape_top_high"/>
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_keyboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

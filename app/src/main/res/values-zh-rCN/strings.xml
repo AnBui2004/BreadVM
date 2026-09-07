@@ -736,7 +736,6 @@
 
 
     <!--======================TERMUX STRINGS====================-->
-    <string name="application_name" translatable="false">Vterm</string>
     <string name="new_session">新建会话</string>
     <string name="new_session_failsafe">安全模式</string>
     <string name="toggle_soft_keyboard">键盘</string>
@@ -748,10 +747,10 @@
 
     <string name="bootstrap_installer_body">安装中…</string>
     <string name="bootstrap_error_title">无法安装</string>
-    <string name="bootstrap_error_body">Vterm 无法安装初始化包</string>
+    <string name="bootstrap_error_body">Terminal 无法安装初始化包</string>
     <string name="bootstrap_error_abort">停止</string>
     <string name="bootstrap_error_try_again">再次尝试</string>
-    <string name="bootstrap_error_not_primary_user_message">Vterm 只能安装在主用户帐户上</string>
+    <string name="bootstrap_error_not_primary_user_message">Terminal 只能安装在主用户帐户上</string>
 
     <string name="max_terminals_reached_title">已达到的最大终端数</string>
     <string name="max_terminals_reached_message">在开新的之前关闭现有项</string>
@@ -773,7 +772,7 @@
     <string name="session_new_named_title">新命名会话</string>
     <string name="session_new_named_positive_button">新建</string>
 
-    <string name="styling_not_installed">Vterm:Style 插件尚未安装</string>
+    <string name="styling_not_installed">Terminal:Style 插件尚未安装</string>
     <string name="styling_install">安装</string>
 
     <string name="notification_action_exit">退出</string>
@@ -1121,13 +1120,13 @@ E.g. <b>META</b> for <i>META key</i>, \n
 
     <!-- <string name="app_name" translatable="false">My Awesome App</string> -->
 
-    <!-- <string name="shared_user_label" translatable="false">Vterm user</string> -->
+    <!-- <string name="shared_user_label" translatable="false">Terminal user</string> -->
 
-    <!-- <string name="run_command_permission_description">execute arbitrary commands within Vterm
+    <!-- <string name="run_command_permission_description">execute arbitrary commands within Terminal
         environment
     </string> -->
 
-    <!-- <string name="bootstrap_error_not_primary_user_message">Vterm can only be installed on the
+    <!-- <string name="bootstrap_error_not_primary_user_message">Terminal can only be installed on the
         primary user account.
     </string> -->
 

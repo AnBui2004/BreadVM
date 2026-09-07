@@ -75,7 +75,7 @@ import hey.bread.vm.utils.ListUtils;
 import hey.bread.vm.utils.SimulateKeyEvent;
 import hey.bread.vm.sound.StreamAudio;
 import hey.bread.vm.utils.UIUtils;
-import hey.bread.vm.view.DynamicBubble;
+import hey.bread.view.DynamicBubble;
 
 import java.util.ArrayList;
 import java.util.HashMap;

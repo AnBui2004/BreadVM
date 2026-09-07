@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.anbui.elephant.utils.PackageUtil;
 import com.termux.app.TermuxService;
+
 import hey.bread.qemu.Config;
 import hey.bread.qemu.MainSettingsManager;
 import hey.bread.qemu.MainVNCActivity;
@@ -182,10 +183,14 @@ public class DisplaySystem {
                 }
 
                 ShellExecutor shellExec = new ShellExecutor();
-                shellExec.exec(TermuxService.PREFIX_PATH + "/bin/termux-x11 :0");
+                shellExec.exec("""
+                        export CLASSPATH=/data/data/hey.bread.vm/files/usr/libexec/termux-x11/loader.apk
+                        unset LD_LIBRARY_PATH LD_PRELOAD
+                        exec /system/bin/app_process -Xnoimage-dex2oat / hey.bread.vm.Loader :0
+                        """);
             }).start();
         } else {
-            if (PackageUtils.isInstalled("com.termux.x11", context)){
+            if (PackageUtils.isInstalled("com.termux.x11", context)) {
                 try {
                     TermuxX11.main(new String[]{":0"});
                 } catch (Exception e) {

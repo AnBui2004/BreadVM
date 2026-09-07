@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import hey.bread.vm.R;
-import hey.bread.vm.view.GithubUserView;
+import hey.bread.view.GithubUserView;
 
 public class GithubUserAdapter extends RecyclerView.Adapter<GithubUserAdapter.ViewHolder> {
 

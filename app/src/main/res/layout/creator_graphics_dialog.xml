@@ -36,7 +36,7 @@
                 android:paddingBottom="16dp"
                 android:text="@string/graphics" />
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_card_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

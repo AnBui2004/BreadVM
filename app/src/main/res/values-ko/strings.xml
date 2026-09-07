@@ -596,10 +596,10 @@
     <string name="autofill_password">비밀번호 자동 입력</string>
     <string name="bootstrap_installer_body">설치 중…</string>
     <string name="bootstrap_error_title">설치할 수 없음</string>
-    <string name="bootstrap_error_body">Vterm이 Bootstrap 패키지를 설치할 수 없습니다.</string>
+    <string name="bootstrap_error_body">Terminal이 Bootstrap 패키지를 설치할 수 없습니다.</string>
     <string name="bootstrap_error_abort">중단</string>
     <string name="bootstrap_error_try_again">다시 시도</string>
-    <string name="bootstrap_error_not_primary_user_message">Vterm은 주 사용자 계정에만 설치할 수 있습니다.</string>
+    <string name="bootstrap_error_not_primary_user_message">Terminal은 주 사용자 계정에만 설치할 수 있습니다.</string>
     <string name="max_terminals_reached_title">터미널 최대 개수에 도달했습니다</string>
     <string name="max_terminals_reached_message">새로 만들기 전에 기존 터미널을 닫으세요.</string>
     <string name="reset_toast_notification">터미널이 재설정되었습니다.</string>
@@ -615,7 +615,7 @@
     <string name="session_rename_positive_button">설정</string>
     <string name="session_new_named_title">이름 있는 새 세션</string>
     <string name="session_new_named_positive_button">만들기</string>
-    <string name="styling_not_installed">Vterm:Style 추가 기능이 설치되어 있지 않습니다.</string>
+    <string name="styling_not_installed">Terminal:Style 추가 기능이 설치되어 있지 않습니다.</string>
     <string name="styling_install">설치</string>
     <string name="notification_action_exit">종료</string>
     <string name="notification_action_wake_lock">Wake Lock 획득</string>

@@ -36,7 +36,7 @@
                 android:paddingBottom="16dp"
                 android:text="@string/board" />
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_machine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 app:subtitle="@string/defaulttext"
                 android:background="@drawable/object_shape_top_high"/>
 
-            <hey.bread.vm.view.CheckBoxView
+            <hey.bread.view.CheckBoxView
                 android:id="@+id/cbv_hpet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 app:setText="@string/hpet"
                 android:background="@drawable/object_shape_bottom_high"/>
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_cpu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 app:subtitle="@string/defaulttext"
                 android:background="@drawable/object_shape_top_high"/>
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_core"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                 app:subtitle="@string/defaulttext"
                 android:background="@drawable/object_shape_middle_high"/>
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_thread"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                 app:subtitle="@string/defaulttext"
                 android:background="@drawable/object_shape_middle_high"/>
 
-            <hey.bread.vm.view.CheckBoxView
+            <hey.bread.view.CheckBoxView
                 android:id="@+id/cbv_nested_virtualization"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <hey.bread.vm.view.CheckBoxView
+            <hey.bread.view.CheckBoxView
                 android:id="@+id/cbv_battery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

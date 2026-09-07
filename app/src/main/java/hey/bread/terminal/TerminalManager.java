@@ -19,7 +19,6 @@ import hey.bread.vm.utils.FileUtils;
 public class TerminalManager {
     public static void openTerminal(Activity activity) {
         if (SettingsData.terminalWarning(activity)) {
-            setupForTermux(activity);
             activity.startActivity(new Intent(activity, TermuxActivity.class));
         } else {
             DialogUtils.threeDialog(
@@ -33,12 +32,10 @@ public class TerminalManager {
                     R.drawable.warning_48px,
                     true,
                     () -> {
-                        setupForTermux(activity);
                         activity.startActivity(new Intent(activity, TermuxActivity.class));
                     },
                     () -> {
                         SettingsData.terminalWarning(activity, true);
-                        setupForTermux(activity);
                         activity.startActivity(new Intent(activity, TermuxActivity.class));
                     },
                     null,
@@ -47,15 +44,7 @@ public class TerminalManager {
         }
     }
 
-    public static void setupForTermux(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("terminal_data", Context.MODE_PRIVATE);;
-        File pdFile = new File(TermuxService.PREFIX_PATH + "/bin/bread-pd");
-
-        if (pdFile.exists()) {
-            long lastModified = sharedPreferences.getLong("lastModified", 0);;
-            if (pdFile.lastModified() == lastModified) return;
-        }
-
+    public static String[] termuxArguments(Context context) {
         String nativeDir = context.getApplicationInfo().nativeLibraryDir + "/";
         String executableContent = """
                 #!/system/bin/sh
@@ -100,7 +89,6 @@ public class TerminalManager {
 
         executableContent = executableContent.replace("${loader32}", DeviceUtils.is64bit() ? "export PROOT_LOADER_32=${nativeDir}libproot-loader32.so" : "");
 
-        if (FileUtils.writeToFile(TermuxService.PREFIX_PATH + "/bin/", "bread-pd", executableContent.replace("${nativeDir}", nativeDir)))
-            sharedPreferences.edit().putLong("lastModified", pdFile.lastModified()).apply();
+        return new String[]{ "-c", executableContent.replace("${nativeDir}", nativeDir) };
     }
 }

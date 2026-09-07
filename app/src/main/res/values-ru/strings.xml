@@ -222,10 +222,10 @@
 
     <string name="bootstrap_installer_body">Установка…</string>
     <string name="bootstrap_error_title">Не удалось установить</string>
-    <string name="bootstrap_error_body">Vterm не смог установить загрузочные пакеты.</string>
+    <string name="bootstrap_error_body">Terminal не смог установить загрузочные пакеты.</string>
     <string name="bootstrap_error_abort">Прервать</string>
     <string name="bootstrap_error_try_again">Попробовать снова</string>
-    <string name="bootstrap_error_not_primary_user_message">Vterm может быть установлен только в основной учетной записи пользователя.</string>
+    <string name="bootstrap_error_not_primary_user_message">Terminal может быть установлен только в основной учетной записи пользователя.</string>
 
     <string name="max_terminals_reached_title">Достигнуто максимальное количество терминалов</string>
     <string name="max_terminals_reached_message">Закройте существующие, прежде чем создавать новые.</string>
@@ -247,7 +247,7 @@
     <string name="session_new_named_title">Новая именованная сессия</string>
     <string name="session_new_named_positive_button">Создать</string>
 
-    <string name="styling_not_installed">Дополнение Vterm:Style не установлено.</string>
+    <string name="styling_not_installed">Дополнение Terminal:Style не установлено.</string>
     <string name="styling_install">Установить</string>
 
     <string name="notification_action_exit">Выход</string>

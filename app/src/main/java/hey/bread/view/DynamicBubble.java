@@ -1,4 +1,4 @@
-package hey.bread.vm.view;
+package hey.bread.view;
 
 import android.view.MotionEvent;
 import android.view.View;

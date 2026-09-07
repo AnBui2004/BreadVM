@@ -33,7 +33,7 @@ public class SetupFeatureCore {
     }
 
     public static boolean isInstalledTermuxX11Assets(Context context) {
-        return FileUtils.isFileExists(context.getFilesDir().getAbsolutePath() + "/usr/bin/termux-x11");
+        return FileUtils.isFileExists(context.getFilesDir().getAbsolutePath() + "/usr/share/pkgconfig/xkeyboard-config.pc");
     }
 
     public static boolean isInstalledDistro(Context context) {
@@ -71,8 +71,8 @@ public class SetupFeatureCore {
         File binDir = new File(distroDir + "/bin");
         if (!binDir.exists()) {
             if (!isInstalledTermuxX11Assets(context)) {
-                if (!extractSystemFiles(context, "x11", "", false)) {
-                    if (!extractSystemFiles(context, "x11", "", true)) return false;
+                if (!extractSystemFiles(context, "x11", "", true, false)) {
+                    if (!extractSystemFiles(context, "x11", "", true, true)) return false;
                 }
 
                 /*if (!mkSymlinks(filesDir + "/usr/lib/")) {
@@ -106,9 +106,13 @@ public class SetupFeatureCore {
     }
 
     public static boolean extractSystemFiles(Context context, String fromAsset, String extractTo, boolean tryNoSameOwner) {
+        return extractSystemFiles(context, fromAsset, extractTo, false, tryNoSameOwner);
+    }
+
+    public static boolean extractSystemFiles(Context context, String fromAsset, String extractTo, boolean isNoArch, boolean tryNoSameOwner) {
         String randomFileName = VMManager.startRamdomVMID();
         String filesDir = context.getFilesDir().getAbsolutePath();
-        String abi = Build.SUPPORTED_ABIS[0];
+        String abi = isNoArch ? "noarch" : Build.SUPPORTED_ABIS[0];
         String assetPath = fromAsset + "/" + abi + ".tar";
         String extractedFilePath = filesDir + "/" + randomFileName + ".tar";
         File destDir = new File(filesDir + "/" + extractTo);

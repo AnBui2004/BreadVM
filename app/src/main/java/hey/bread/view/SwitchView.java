@@ -1,4 +1,4 @@
-package hey.bread.vm.view;
+package hey.bread.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;

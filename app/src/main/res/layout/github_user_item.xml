@@ -7,7 +7,7 @@
     android:paddingVertical="8dp"
     android:background="?android:attr/selectableItemBackground" >
 
-    <hey.bread.vm.view.GithubUserView
+    <hey.bread.view.GithubUserView
         android:id="@+id/github_user_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

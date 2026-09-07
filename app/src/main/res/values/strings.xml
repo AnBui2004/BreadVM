@@ -741,7 +741,7 @@
 
 
     <!--======================TERMUX STRINGS====================-->
-    <string name="application_name" translatable="false">Vterm</string>
+    <string name="application_name" translatable="false">Bread VM Terminal</string>
     <string name="new_session">New session</string>
     <string name="new_session_failsafe">Failsafe</string>
     <string name="toggle_soft_keyboard">Keyboard</string>
@@ -753,10 +753,10 @@
 
     <string name="bootstrap_installer_body">Installing…</string>
     <string name="bootstrap_error_title">Unable to install</string>
-    <string name="bootstrap_error_body">Vterm was unable to install the bootstrap packages.</string>
+    <string name="bootstrap_error_body">Terminal was unable to install the bootstrap packages.</string>
     <string name="bootstrap_error_abort">Abort</string>
     <string name="bootstrap_error_try_again">Try again</string>
-    <string name="bootstrap_error_not_primary_user_message">Vterm can only be installed on the primary user account.</string>
+    <string name="bootstrap_error_not_primary_user_message">Terminal can only be installed on the primary user account.</string>
 
     <string name="max_terminals_reached_title">Max terminals reached</string>
     <string name="max_terminals_reached_message">Close down existing ones before creating new.</string>
@@ -778,7 +778,7 @@
     <string name="session_new_named_title">New named session</string>
     <string name="session_new_named_positive_button">Create</string>
 
-    <string name="styling_not_installed">The Vterm:Style add-on is not installed.</string>
+    <string name="styling_not_installed">The Terminal:Style add-on is not installed.</string>
     <string name="styling_install">Install</string>
 
     <string name="notification_action_exit">Exit</string>
@@ -1259,13 +1259,13 @@ E.g. <b>META</b> for <i>META key</i>, \n
 
     <!-- <string name="app_name" translatable="false">My Awesome App</string> -->
 
-    <!-- <string name="shared_user_label" translatable="false">Vterm user</string> -->
+    <!-- <string name="shared_user_label" translatable="false">Terminal user</string> -->
 
-    <!-- <string name="run_command_permission_description">execute arbitrary commands within Vterm
+    <!-- <string name="run_command_permission_description">execute arbitrary commands within Terminal
         environment
     </string> -->
 
-    <!-- <string name="bootstrap_error_not_primary_user_message">Vterm can only be installed on the
+    <!-- <string name="bootstrap_error_not_primary_user_message">Terminal can only be installed on the
         primary user account.
     </string> -->
 

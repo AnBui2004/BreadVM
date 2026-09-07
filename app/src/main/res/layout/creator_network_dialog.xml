@@ -36,7 +36,7 @@
                 android:paddingBottom="16dp"
                 android:text="@string/network" />
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_card_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 app:subtitle="@string/defaulttext"
                 android:background="@drawable/object_shape_top_high"/>
 
-            <hey.bread.vm.view.CheckBoxView
+            <hey.bread.view.CheckBoxView
                 android:id="@+id/cbv_wifi_card_dummy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

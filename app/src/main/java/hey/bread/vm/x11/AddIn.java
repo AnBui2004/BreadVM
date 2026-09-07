@@ -49,7 +49,7 @@ import hey.bread.vm.manager.VmPicker;
 import hey.bread.vm.settings.SettingsData;
 import hey.bread.vm.sound.StreamAudio;
 import hey.bread.vm.utils.DialogUtils;
-import hey.bread.vm.view.DynamicBubble;
+import hey.bread.view.DynamicBubble;
 import hey.bread.vm.x11.input.InputStub;
 
 import java.util.ArrayList;

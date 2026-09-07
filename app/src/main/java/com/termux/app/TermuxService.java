@@ -21,6 +21,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 
+import hey.bread.terminal.TerminalManager;
 import hey.bread.vm.AppConfig;
 import hey.bread.vm.R;
 import com.termux.terminal.EmulatorDebug;
@@ -301,7 +302,7 @@ public final class TermuxService extends Service implements SessionChangedCallba
 
             if (executablePath == null) {
                 executablePath = "/system/bin/sh";
-                arguments = new String[]{ TermuxService.PREFIX_PATH + "/bin/bread-pd" };
+                arguments = TerminalManager.termuxArguments(this);
             }
 
             isLoginShell = true;
@@ -383,7 +384,7 @@ public final class TermuxService extends Service implements SessionChangedCallba
     private void setupNotificationChannel() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return;
 
-        String channelName = "Vterm";
+        String channelName = "Bread VM Terminal";
         String channelDescription = "Notifications from ";
         int importance = NotificationManager.IMPORTANCE_LOW;
 

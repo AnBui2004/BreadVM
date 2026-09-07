@@ -124,7 +124,7 @@
                     android:clickable="false"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <hey.bread.vm.view.SelectBoxView
+            <hey.bread.view.SelectBoxView
                 android:id="@+id/sbv_refresh_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

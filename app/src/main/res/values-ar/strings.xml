@@ -239,10 +239,10 @@
 
     <string name="bootstrap_installer_body">جارٍ التثبيت…</string>
     <string name="bootstrap_error_title">غير قادر على التثبيت</string>
-    <string name="bootstrap_error_body">لم يتمكن Vterm من تثبيت حزم التمهيد.</string>
+    <string name="bootstrap_error_body">لم يتمكن Terminal من تثبيت حزم التمهيد.</string>
     <string name="bootstrap_error_abort">إلغاء</string>
     <string name="bootstrap_error_try_again">حاول مرة أخرى</string>
-    <string name="bootstrap_error_not_primary_user_message">يمكن تثبيت Vterm فقط على حساب المستخدم الأساسي.</string>
+    <string name="bootstrap_error_not_primary_user_message">يمكن تثبيت Terminal فقط على حساب المستخدم الأساسي.</string>
 
     <string name="max_terminals_reached_title">تم الوصول إلى الحد الأقصى من المحطات</string>
     <string name="max_terminals_reached_message">قم بإغلاق المحطات الموجودة قبل إنشاء جديدة.</string>
@@ -264,7 +264,7 @@
     <string name="session_new_named_title">جلسة جديدة باسم</string>
     <string name="session_new_named_positive_button">إنشاء</string>
 
-    <string name="styling_not_installed">الإضافة Vterm:Style غير مثبتة.</string>
+    <string name="styling_not_installed">الإضافة Terminal:Style غير مثبتة.</string>
     <string name="styling_install">تثبيت</string>
 
     <string name="notification_action_exit">خروج</string>

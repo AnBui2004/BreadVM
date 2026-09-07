@@ -717,7 +717,6 @@
     <string name="switch_to_bread_vm_content">Bạn có muốn chuyển các máy ảo sang Bread VM không?</string>
 
     <!--======================TERMUX STRINGS====================-->
-    <string name="application_name" translatable="false">Vterm</string>
     <string name="new_session">Phiên làm việc mới</string>
     <string name="new_session_failsafe">Chế độ an toàn</string>
     <string name="toggle_soft_keyboard">Bàn phím</string>
@@ -729,10 +728,10 @@
 
     <string name="bootstrap_installer_body">Đang cài đặt…</string>
     <string name="bootstrap_error_title">Không thể cài đặt</string>
-    <string name="bootstrap_error_body">Vterm không thể cài đặt các gói khởi động.</string>
+    <string name="bootstrap_error_body">Terminal không thể cài đặt các gói khởi động.</string>
     <string name="bootstrap_error_abort">Huỷ bỏ</string>
     <string name="bootstrap_error_try_again">Thử lại</string>
-    <string name="bootstrap_error_not_primary_user_message">Vterm chỉ có thể được cài đặt trên tài khoản người dùng chính.</string>
+    <string name="bootstrap_error_not_primary_user_message">Terminal chỉ có thể được cài đặt trên tài khoản người dùng chính.</string>
 
     <string name="max_terminals_reached_title">Đã đạt số lượng cửa sổ dòng lệnh tối đa</string>
     <string name="max_terminals_reached_message">Đóng các cửa sổ hiện có trước khi tạo cửa sổ mới.</string>
@@ -754,7 +753,7 @@
     <string name="session_new_named_title">Phiên làm việc mới có tên</string>
     <string name="session_new_named_positive_button">Tạo</string>
 
-    <string name="styling_not_installed">Tiện ích mở rộng Vterm:Style chưa được cài đặt.</string>
+    <string name="styling_not_installed">Tiện ích mở rộng Terminal:Style chưa được cài đặt.</string>
     <string name="styling_install">Cài đặt</string>
 
     <string name="notification_action_exit">Thoát</string>

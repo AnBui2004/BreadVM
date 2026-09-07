@@ -1,4 +1,4 @@
-package hey.bread.vm.view;
+package hey.bread.view;
 
 import android.app.Activity;
 import android.content.Context;
