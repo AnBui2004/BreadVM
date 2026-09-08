@@ -22,6 +22,7 @@ import hey.bread.vm.settings.SettingsData;
 import hey.bread.vm.utils.CpuHelper;
 import hey.bread.vm.utils.DeviceUtils;
 import hey.bread.vm.utils.FileUtils;
+import hey.bread.vm.utils.TextUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,7 +48,7 @@ public class StartVM {
                 snapshotParams += " " + getDisplayParams(activity, vmConfigs.itemExtra);
                 if (!snapshotParams.contains("-incoming defer"))
                     snapshotParams += " -incoming defer";
-                Log.d("StartVM.env", snapshotParams);
+                Log.d("StartVM.env", TextUtils.redactSecrets(snapshotParams));
 
                 FileUtils.copyFile(VmFileManager.getPath(vmConfigs.vmID, VmFileManager.COMPILED_BATERRY_ACPI_FILE_NAME), VmFileManager.getTempPath(activity, vmConfigs.vmID));
                 FileUtils.copyFile(VmFileManager.getPath(vmConfigs.vmID, VmFileManager.COMPILED_WIFI_CARD_ACPI_FILE_NAME), VmFileManager.getTempPath(activity, vmConfigs.vmID));

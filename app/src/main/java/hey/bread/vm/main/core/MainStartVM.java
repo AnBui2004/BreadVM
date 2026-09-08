@@ -24,6 +24,7 @@ import hey.bread.vm.main.vms.DataMainRoms;
 import hey.bread.vm.manager.QmpSender;
 import hey.bread.vm.manager.VmFileManager;
 import hey.bread.vm.manager.VmAudioManager;
+import hey.bread.vm.manager.VmListManager;
 import hey.bread.vm.manager.VmServiceManager;
 import hey.bread.vm.settings.ExternalVNCSettingsActivity;
 import hey.bread.vm.utils.DeviceUtils;
@@ -32,6 +33,7 @@ import hey.bread.vm.utils.FileUtils;
 import hey.bread.vm.utils.NetworkUtils;
 import hey.bread.vm.utils.PackageUtils;
 import hey.bread.vm.utils.ServiceUtils;
+import hey.bread.vm.utils.TextUtils;
 
 import java.io.File;
 
@@ -166,7 +168,7 @@ public class MainStartVM {
 
         if (isLaunchFromPending) {
             isLaunchFromPending = false;
-            if (pendingVMID.isEmpty()) {
+            if (!VmListManager.isValidId(pendingVMID)) {
                 if (callback != null) callback.onError(ERROR_INVALID_VM_ID, "");
                 return;
             }
@@ -205,16 +207,15 @@ public class MainStartVM {
 
         breakNow = false;
 
-        String finalvmID;
-        if (vmID == null || vmID.isEmpty()) {
-            finalvmID = VMManager.startRamdomVMID();
-        } else {
-            finalvmID = vmID;
+        // It is unlikely that this will happen.
+        if (!VmListManager.isValidId(vmID)) {
+            if (callback != null) callback.onError(ERROR_INVALID_VM_ID, "");
+            return;
         }
 
-        Config.vmID = finalvmID;
+        Config.vmID = vmID;
 
-        if (VMManager.isVMRunning(context, finalvmID)) {
+        if (VMManager.isVMRunning(context, vmID)) {
             dismissDialog();
 
             Toast.makeText(context, context.getString(R.string.this_vm_is_already_running), Toast.LENGTH_LONG).show();
@@ -233,7 +234,7 @@ public class MainStartVM {
         if (dialog == null || !dialog.isShowing())
             showDialog((Activity) context, vmID, vmName, thumbnailFile, null);
 
-        File romDir = new File(Config.getCacheDir() + "/" + finalvmID);
+        File romDir = new File(Config.getCacheDir() + "/" + vmID);
         if (!romDir.exists()) {
             if (!romDir.mkdirs()) {
                 DialogUtils.oneDialog(
@@ -266,7 +267,7 @@ public class MainStartVM {
             if (env.contains("tcg,thread=multi")) {
                 StartVmDialog finalDialog1 = dialog;
                 DialogUtils.twoDialog(context, context.getResources().getString(R.string.problem_has_been_detected), context.getResources().getString(R.string.can_not_use_mttcg), context.getString(R.string.ok), context.getString(R.string.cancel), true, R.drawable.warning_48px, true,
-                        () -> startNow(context, vmName, env.replace("tcg,thread=multi", "tcg,thread=single"), finalvmID, thumbnailFile, finalDialog1), null, null);
+                        () -> startNow(context, vmName, env.replace("tcg,thread=multi", "tcg,thread=single"), vmID, thumbnailFile, finalDialog1), null, null);
 
                 dismissDialog();
                 if (callback != null) callback.onError(ERROR_ACCEL, "");
@@ -342,7 +343,7 @@ public class MainStartVM {
                     return;
                 }
 
-                startVm(context, vmName, env, finalvmID, thumbnailFile, callback);
+                startVm(context, vmName, env, vmID, thumbnailFile, callback);
             });
         }).start();
     }
@@ -378,7 +379,7 @@ public class MainStartVM {
             finalCommand = "export DISPLAY=:0 && " + finalCommand;
             DisplaySystem.startDesktop(context);
         }
-        Log.i(TAG, finalCommand);
+        Log.i(TAG, TextUtils.redactSecrets(finalCommand));
 
         if (breakNow) {
             dismissDialog();

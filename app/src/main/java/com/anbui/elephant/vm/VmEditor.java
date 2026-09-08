@@ -4,6 +4,7 @@ import hey.bread.vm.AppConfig;
 import hey.bread.vm.VMManager;
 import hey.bread.vm.main.core.PendingCommand;
 import hey.bread.vm.manager.VmFileManager;
+import hey.bread.vm.manager.VmListManager;
 import hey.bread.vm.utils.FileUtils;
 import hey.bread.vm.utils.JSONUtils;
 
@@ -29,8 +30,8 @@ public class VmEditor {
             if (!VMManager.replaceToVMList(-1, vmIdReady , vmConfig)) return false;
         } else {
             if (!FileUtils.isEmpty(VmFileManager.quickGetPath(vmIdReady ))) vmIdReady  = VMManager.idGenerator();
-
-            if (!VMManager.addToVMList(vmConfig, vmIdReady )) return false;
+            if (!VmListManager.isValidId(vmIdReady)) return false;
+            if (!VMManager.addToVMList(vmConfig, vmIdReady)) return false;
 
             PendingCommand.forceCreate = true;
         }

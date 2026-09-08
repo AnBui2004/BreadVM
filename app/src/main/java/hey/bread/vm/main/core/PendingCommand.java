@@ -15,6 +15,7 @@ import hey.bread.vm.manager.VmFileManager;
 import hey.bread.vm.utils.DialogUtils;
 import hey.bread.vm.utils.FileUtils;
 import hey.bread.terminal.Terminal2;
+import hey.bread.vm.utils.TextUtils;
 
 public class PendingCommand {
     private static final String TAG = "PendingCommand";
@@ -22,7 +23,7 @@ public class PendingCommand {
 
     public static void runNow(Activity activity) {
         if (command != null && !command.isEmpty()) {
-            Log.d(TAG, "runNow: " + command);
+            Log.d(TAG, "runNow: " + TextUtils.redactSecrets(command));
 
             if (!VMManager.isthiscommandsafe(command, activity)) {
                 DialogUtils.oneDialog(

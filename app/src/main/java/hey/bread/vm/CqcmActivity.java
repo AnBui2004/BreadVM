@@ -20,6 +20,7 @@ import hey.bread.vm.main.core.PendingCommand;
 import hey.bread.vm.utils.FileUtils;
 import hey.bread.vm.utils.JSONUtils;
 import hey.bread.vm.utils.PermissionUtils;
+import hey.bread.vm.utils.TextUtils;
 import hey.bread.vm.utils.UIUtils;
 
 import java.util.HashMap;
@@ -57,7 +58,7 @@ public class CqcmActivity extends AppCompatActivity {
         Log.i("CqcmActivity", "Checking access to storage...");
         if (!PermissionUtils.storagepermission(this,false)) return;
 
-        if (ParamNotebookVerifier.verify(this)) {
+        if (!ParamNotebookVerifier.verify(this)) {
             Toast.makeText(getApplicationContext(), "Cannot continue due to an invalid source.", Toast.LENGTH_LONG).show();
             finish();
             return;
@@ -120,7 +121,7 @@ public class CqcmActivity extends AppCompatActivity {
     }
 
     private void runCommand(String _command) {
-        Log.i(TAG, "runCommand: " + _command);
+        Log.i(TAG, "runCommand: " + TextUtils.redactSecrets(_command));
 
         PendingCommand.command = _command;
 

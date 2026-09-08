@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,11 +18,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.signature.ObjectKey;
 import hey.bread.vm.R;
 import hey.bread.vm.VMManager;
+import hey.bread.vm.main.core.Event;
 import hey.bread.vm.main.core.MainConfigs;
 import hey.bread.vm.main.core.MainStartVM;
 import hey.bread.vm.main.core.RomOptionsDialog;
 import hey.bread.vm.main.core.SharedData;
+import hey.bread.vm.main.core.SharedViewModel;
 import hey.bread.vm.manager.VmFileManager;
+import hey.bread.vm.manager.VmListManager;
 import hey.bread.vm.utils.DialogUtils;
 import hey.bread.vm.utils.FileUtils;
 
@@ -58,7 +63,7 @@ public class VmsHomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         final MyHolder myHolder = (MyHolder) holder;
         final DataMainRoms current = data.get(position);
 
-        if (current == null) {
+        if (current == null || !VmListManager.isValidId(current.vmID)) {
             myHolder.ivIcon.setImageResource(R.drawable.ic_computer_180dp_with_padding);
             myHolder.textName.setText(activity.getString(R.string.unknow));
             myHolder.textArch.setText(activity.getString(R.string.unknow));
@@ -72,7 +77,20 @@ public class VmsHomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     true,
                     R.drawable.error_96px,
                     true,
-                    () -> VMManager.deleteVmInList(activity, position),
+                    () -> {
+                        boolean isDeleted;
+
+                        // Prevent accidental deletion if id already exists.
+                        if (current != null && current.vmID != null && !current.vmID.isEmpty())
+                            isDeleted = VMManager.deleteVmInList(activity, current.vmID);
+                        else
+                            isDeleted = VMManager.deleteVmInList(activity, position);
+
+                        if (isDeleted) {
+                            SharedViewModel sharedViewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(SharedViewModel.class);
+                            sharedViewModel.requestRefreshVmList.setValue(new Event<>(false));
+                        }
+                    },
                     null,
                     null
             ));

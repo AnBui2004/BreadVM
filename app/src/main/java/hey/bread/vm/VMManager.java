@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
@@ -34,6 +35,7 @@ import hey.bread.vm.main.vms.DataMainRoms;
 import hey.bread.vm.manager.QmpSender;
 import hey.bread.vm.manager.VmFileManager;
 import hey.bread.vm.manager.VmActions;
+import hey.bread.vm.manager.VmListManager;
 import hey.bread.vm.settings.X11DisplaySettingsActivity;
 import hey.bread.vm.utils.DialogUtils;
 import hey.bread.vm.utils.FileUtils;
@@ -45,6 +47,7 @@ import hey.bread.terminal.Terminal2;
 import org.jetbrains.annotations.Contract;
 
 import java.io.File;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -288,6 +291,8 @@ public class VMManager {
     }
 
     public static boolean writeToVMConfig(String vmID, String content) {
+        if (!VmListManager.isValidId(vmID)) return false;
+
         return FileUtils.writeToFile(AppConfig.maindirpath + "/roms/" + vmID, "rom-data.json", content.replace("\\u003d", "=")) &&
                 FileUtils.writeToFile(AppConfig.maindirpath + "/roms/" + vmID, "vmID.txt", vmID);
         // TODO: vmID.txt can be removed, it is being retained for backward compatibility.
@@ -484,6 +489,10 @@ public class VMManager {
         return isCompleted;
     }
 
+    public static boolean deleteVmInList(Context context, String vmId) {
+        return deleteVmInList(context, findVmPotision(vmId));
+    }
+
     public static boolean deleteVmInList(Context context, int position) {
         if (!JSONUtils.isValidVmList()) return false;
         String vmList = FileUtils.readFromFile(context, new File(AppConfig.maindirpath + "roms-data.json"));
@@ -491,7 +500,7 @@ public class VMManager {
         if (position < 0 || position > arr.size() - 1) return false;
         arr.remove(position);
 
-        return FileUtils.writeToFile(AppConfig.maindirpath, "roms-data.json", vmList);
+        return FileUtils.writeToFile(AppConfig.maindirpath, "roms-data.json", new Gson().toJson(arr));
     }
 
     public static int restoreAll() {
@@ -876,7 +885,7 @@ public class VMManager {
     }
 
     public static boolean isthiscommandsafe(@NonNull String _command, Context _context) {
-        Log.d(TAG, "isthiscommandsafe: " + _command);
+        Log.d(TAG, "isthiscommandsafe: " + TextUtils.redactSecrets(_command));
 
         // The command is written to a bash shell's stdin, so characters that
         // trigger shell expansion, redirection, or process substitution let a

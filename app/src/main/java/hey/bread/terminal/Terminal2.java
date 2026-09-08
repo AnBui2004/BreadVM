@@ -12,6 +12,7 @@ import hey.bread.vm.logger.BreadStatus;
 import hey.bread.vm.utils.DeviceUtils;
 import hey.bread.vm.utils.FileUtils;
 import hey.bread.vm.utils.ProgressDialog;
+import hey.bread.vm.utils.TextUtils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -203,8 +204,10 @@ public class Terminal2 {
             writer.close();
 
             String line;
+            long lastProgressUpdate = 0;
             while ((line = reader.readLine()) != null) {
 //                Log.d(TAG, line);
+                line = TextUtils.redactSecrets(line);
                 BreadStatus.logError(line);
                 output.append(line).append("\n");
                 if (callback != null) callback.onRunning(command, line);
@@ -214,8 +217,14 @@ public class Terminal2 {
                 }
 
                 if (progressDialog != null) {
-                    String finalLine = line;
-                    new Handler(Looper.getMainLooper()).post(() -> progressDialog.setText(finalLine));
+                    // Throttle main-thread posts: QEMU can emit thousands of
+                    // lines per second; posting each one floods the main looper.
+                    long now = System.currentTimeMillis();
+                    if (now - lastProgressUpdate >= 100) {
+                        lastProgressUpdate = now;
+                        String finalLine = line;
+                        new Handler(Looper.getMainLooper()).post(() -> progressDialog.setText(finalLine));
+                    }
                 }
             }
 

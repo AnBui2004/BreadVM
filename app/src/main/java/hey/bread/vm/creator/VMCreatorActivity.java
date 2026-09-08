@@ -1047,14 +1047,15 @@ public class VMCreatorActivity extends AppCompatActivity {
 
                 JSONObject jObj = new JSONObject(FileUtils.readFromFile(this, new File(VmFileManager.getConfigFile(vmID))));
 
-                if (jObj.has("vmID")) {
-                    if (!jObj.isNull("vmID")) {
-                        if (!jObj.getString("vmID").isEmpty()) {
-                            FileUtils.move(VmFileManager.getConfigFile(vmID), VmFileManager.getConfigFile(jObj.getString("vmID")));
-                            vmID = jObj.getString("vmID");
-                        }
-                    }
-                }
+                // It is not used due to security concerns, and there have been virtually no situations requiring it.
+//                if (jObj.has("vmID")) {
+//                    if (!jObj.isNull("vmID")) {
+//                        if (!jObj.getString("vmID").isEmpty()) {
+//                            FileUtils.move(VmFileManager.getConfigFile(vmID), VmFileManager.getConfigFile(jObj.getString("vmID")));
+//                            vmID = jObj.getString("vmID");
+//                        }
+//                    }
+//                }
 
                 //It can be deleted because there are few users of the old version.
                 if (!_filename.replace(".cvbi", "").isEmpty())

@@ -15,10 +15,14 @@ concurrency:
   group: pr-build-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     environment: PRBuild
+    timeout-minutes: 60
 
     steps:
       - uses: actions/checkout@v4
@@ -32,9 +36,6 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-
-      - name: Create google-services.json
-        run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 --decode > app/google-services.json
 
       - name: Create Dummy Keystore
         run: |

@@ -84,6 +84,13 @@ public class VmListManager {
         }
     }
 
+    public static boolean isValidId(String vmId) {
+        if (vmId == null || vmId.isEmpty())
+            return false;
+
+        return vmId.matches("^[a-zA-Z0-9_]+$");
+    }
+
     public static boolean isValid() {
         return isValid(AppConfig.romsdatajson);
     }

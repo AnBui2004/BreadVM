@@ -19,6 +19,7 @@ import hey.bread.vm.R;
 import hey.bread.vm.VMManager;
 import hey.bread.vm.main.core.RomOptionsDialog;
 import hey.bread.vm.manager.VmFileManager;
+import hey.bread.vm.manager.VmListManager;
 import hey.bread.vm.utils.FileUtils;
 import hey.bread.vm.utils.UIUtils;
 
@@ -59,6 +60,21 @@ public class VmsSearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         final MyHolder myHolder = (MyHolder) holder;
         final DataMainRoms current = displayList.get(position);
 
+        UIUtils.setBackgroundItemInList(myHolder.linearItem, position, displayList.size(), isBrighterItemBackground);
+
+        if (current == null || !VmListManager.isValidId(current.vmID)) {
+            myHolder.ivIcon.setImageResource(R.drawable.ic_computer_180dp_with_padding);
+            myHolder.textName.setText(activity.getString(R.string.unknow));
+            myHolder.textSize.setText(activity.getString(R.string.unknow));
+            myHolder.linearItem.setAlpha(0.5f);
+
+            myHolder.linearItem.setEnabled(false);
+            return;
+        } else {
+            myHolder.linearItem.setEnabled(true);
+            myHolder.linearItem.setAlpha(1f);
+        }
+
         myHolder.textName.setText(current.itemName);
         myHolder.textSize.setText(current.itemArch);
         if (!current.itemIcon.isEmpty() && FileUtils.isFileExists(current.itemIcon)){
@@ -84,8 +100,6 @@ public class VmsSearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         myHolder.linearItem.setOnClickListener(view -> RomOptionsDialog.show(activity, current));
 
         myHolder.textAvail.setVisibility(View.GONE);
-
-        UIUtils.setBackgroundItemInList(myHolder.linearItem, position, displayList.size(), isBrighterItemBackground);
     }
 
     // return total item from List
