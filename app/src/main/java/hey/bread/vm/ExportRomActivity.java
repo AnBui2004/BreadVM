@@ -157,6 +157,8 @@ public class ExportRomActivity extends AppCompatActivity {
         String getRomPath = VmFileManager.getPath(current.vmID);
         HashMap<String, Object> vmConfigMap = new HashMap<>();
 
+        vmConfigMap.put("breadVersionCode", PackageUtils.getThisVersionCode(getApplicationContext()));
+
         vmConfigMap.put("title", current.itemName);
 
         if (FileUtils.isFileExists(current.itemIcon)) {
