@@ -8,6 +8,7 @@ jobs:
 
     permissions:
       contents: write
+      packages: write
       
     runs-on: ubuntu-latest
     environment: BuildAPK
