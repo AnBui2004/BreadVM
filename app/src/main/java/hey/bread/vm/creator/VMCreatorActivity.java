@@ -1068,7 +1068,7 @@ public class VMCreatorActivity extends AppCompatActivity {
                     DialogUtils.oneDialog(this, getResources().getString(R.string.problem_has_been_detected), getResources().getString(R.string.this_rom_may_not_be_compatible), R.drawable.warning_24px);
                 } else if (!jObj.isNull("versioncode") && TextUtils.isNumberOnly(jObj.getString("versioncode"))) {
                     // Compatible with older roms to avoid issues where a graphics card is missing.
-                    if (jObj.isNull("breadVersionCode") || Integer.parseInt(jObj.getString("versioncode")) < 155)
+                    if (jObj.isNull("breadVersionCode") && Integer.parseInt(jObj.getString("versioncode")) < 155)
                         current.graphicCard = ParamManager.hasVga(current.itemExtra) ? 1 : 2;
                 }
 
