@@ -41,7 +41,7 @@ Works fine on devices manufactured in 2021 or later and devices equipped with Sn
 > [!TIP]
 > If the OS you are trying to emulate crashes, try using an older version.
 
-# ⬇️ Installation
+## ⬇️ Installation
 
 You can download Bread VM from the [releases](https://github.com/AnBui2004/BreadVM/releases) page.
 
@@ -61,7 +61,7 @@ Play classic games with 3Dfx support on Windows 95, 98, ME, 2000, and XP! Turnip
 ### 😼 Advanced
 Advanced options are [here](ADVANCED.md).
 
-# ❤️ Thanks to
+## ❤️ Thanks to
 - [Alpine Linux](https://www.alpinelinux.org/)
 - [Glide](https://github.com/bumptech/glide)
 - [Gson](https://github.com/google/gson)
@@ -75,7 +75,7 @@ Advanced options are [here](ADVANCED.md).
 - [Vectras VM (Official)](https://github.com/xoureldeen/Vectras-VM-Android)
 - [ZoomImageView](https://github.com/k1slay/ZoomImageView)
 
-# 📜 License
+## 📜 License
 
 This project is licensed under the following terms:
 
@@ -84,7 +84,7 @@ This project is licensed under the following terms:
 * **The rest of the project**: Licensed under [GNU General Public License v2.0](LICENSE).
 * **Brand Assets (Logo / Icon / Name):** The logo, icon, and brand name are the intellectual property of **Nguyen Bao An Bui**. All rights reserved. You are **not permitted** to use this logo, icon, or brand name for forks, commercial products, or republished applications without written consent. This applies to the following files: `nbablab.png`, `notebook_param_48.png`, and `nguyen_bao_an_bui.xml`.
 
-# ⭐ Star History
+## ⭐ Star History
 
 <a href="https://www.star-history.com/?repos=AnBui2004%2FBreadVM&type=date&legend=top-left">
  <picture>
