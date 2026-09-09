@@ -17,6 +17,12 @@ If you need help, you can join [our community](https://anbui.ovh/community/). An
 
 [![Tutorial for beginners](https://img.youtube.com/vi/L6ADe5aVp0Y/mqdefault.jpg)](https://www.youtube.com/watch?v=L6ADe5aVp0Y)
 
+## 👻 Just for fun
+- Bread VM is an emulator, not a simulator, you can look up the concepts to understand the difference between the two. Since Bread VM utilizes QEMU, you can research QEMU in detail to learn how it works.
+- Bread VM is intended solely for fun and is not designed for work or productivity purposes. Please use other solutions suited to your needs.
+- Many people argue that one should use Winlator instead of Bread VM, but this is illogical because they serve completely different purposes. While Winlator focuses on running Windows software and games, Bread VM is designed to run a full operating system. As with the previous point, you should choose the solution that best suits your specific needs.
+- Bread VM will bring you joy if you recognize the true value it offers and appreciate it.
+
 ## 📱 Device Compatibility
 
 Works fine on devices manufactured in 2021 or later and devices equipped with Snapdragon 855 CPU or better. Unexpected problems can occur on devices from Chinese or lesser-known manufacturers because they often have their own operating system optimization methods that differ from stock Android.
