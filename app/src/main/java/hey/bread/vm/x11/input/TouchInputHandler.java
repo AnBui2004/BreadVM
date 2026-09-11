@@ -428,6 +428,7 @@ public class TouchInputHandler {
     }
 
     public void setCapturingEnabled(boolean enabled) {
+        enabled &= mActivity.getLorieView().connected();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (mInjector.pointerCapture && enabled)
                 mActivity.getLorieView().requestPointerCapture();
@@ -1027,8 +1028,14 @@ public class TouchInputHandler {
                 boolean axis_relative_x = e.getDevice().getMotionRange(MotionEvent.AXIS_RELATIVE_X) != null;
                 boolean mouse_relative = (e.getSource() & InputDevice.SOURCE_MOUSE_RELATIVE) == InputDevice.SOURCE_MOUSE_RELATIVE;
                 if (axis_relative_x || mouse_relative) {
-                    float x = axis_relative_x ? e.getAxisValue(MotionEvent.AXIS_RELATIVE_X) : e.getX();
-                    float y = axis_relative_x ? e.getAxisValue(MotionEvent.AXIS_RELATIVE_Y) : e.getY();
+                    int axisX = axis_relative_x ? MotionEvent.AXIS_RELATIVE_X : MotionEvent.AXIS_X;
+                    int axisY = axis_relative_x ? MotionEvent.AXIS_RELATIVE_Y : MotionEvent.AXIS_Y;
+                    float x = e.getAxisValue(axisX);
+                    float y = e.getAxisValue(axisY);
+                    for (int h = 0; h < e.getHistorySize(); h++) {
+                        x += e.getHistoricalAxisValue(axisX, h);
+                        y += e.getHistoricalAxisValue(axisY, h);
+                    }
                     float temp;
 
                     switch (capturedPointerTransformation) {

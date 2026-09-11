@@ -402,8 +402,8 @@ public class LoriePreferences extends AppCompatActivity implements PreferenceFra
             updateScreenIdleTimeoutSummary();
         }
 
-        private static String formatTimeoutMinutes(long timeoutMs) {
-            return (timeoutMs / 60_000) + " min";
+        private static String formatTimeout(long timeoutMs) {
+            return timeoutMs < 60_000 ? (timeoutMs / 1_000) + " sec" : (timeoutMs / 60_000) + " min";
         }
 
         /** Replaces the "System" entry text with the actual system screen-off timeout it defers to. */
@@ -427,7 +427,7 @@ public class LoriePreferences extends AppCompatActivity implements PreferenceFra
             p.setSummaryProvider(null); // overrides the generic SimpleSummaryProvider set above
 
             long systemTimeoutMs = Settings.System.getInt(getContext().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 0);
-            setSystemOptionText(p, formatTimeoutMinutes(systemTimeoutMs));
+            setSystemOptionText(p, formatTimeout(systemTimeoutMs));
 
             String mode = prefs.screenIdleTimeout.get();
             if ("never".equals(mode) || "system".equals(mode)) {
@@ -440,7 +440,7 @@ public class LoriePreferences extends AppCompatActivity implements PreferenceFra
                 return;
             }
 
-            String warningText = getString(R.string.lorie_pref_summary_screenIdleTimeoutConflict, formatTimeoutMinutes(systemTimeoutMs));
+            String warningText = getString(R.string.lorie_pref_summary_screenIdleTimeoutConflict, formatTimeout(systemTimeoutMs));
             SpannableString warning = new SpannableString(warningText);
             warning.setSpan(new ForegroundColorSpan(0xFFFFA000), 0, warningText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             warning.setSpan(new StyleSpan(Typeface.BOLD), 0, warningText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
