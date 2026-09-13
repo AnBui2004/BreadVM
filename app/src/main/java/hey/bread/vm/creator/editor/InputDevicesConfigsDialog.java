@@ -95,7 +95,7 @@ public class InputDevicesConfigsDialog extends BottomSheetDialogFragment {
         if (!isAdded()) return;
 
         binding.sbvUsbController.setOnClickListener(v -> VMCreatorSelector.usbController(requireActivity(), configs.usbController, ((position, name, value) -> {
-            if (position == 0 && ParamManager.isUsbControllerRequired(configs)) {
+            if (ParamManager.isUsbControllerRequired(configs)) {
                 DialogUtils.oopsDialog(requireActivity(), getString(R.string.usb_controller_required_content));
                 return;
             }
@@ -134,7 +134,7 @@ public class InputDevicesConfigsDialog extends BottomSheetDialogFragment {
     }
 
     void checkUsbController() {
-        if (configs.usbController == 0 && ParamManager.isUsbControllerRequired(configs)) {
+        if (ParamManager.isUsbControllerRequired(configs)) {
             configs.usbController = 1;
             binding.sbvUsbController.setSubtitle(Objects.requireNonNull(VMCreatorSelector.getUsbController(requireActivity(), configs.usbController).get("name")).toString());
         }

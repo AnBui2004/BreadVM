@@ -1008,6 +1008,8 @@ E.g. <b>META</b> for <i>META key</i>, \n
     <string name="lorie_pref_summary_screenIdleTimeoutConflict">⚠️ System screen timeout (%s) is longer and takes priority</string>
     <string name="lorie_pref_screenIdleTimeoutSystem">System (%s)</string>
 
+    <string name="virtio" translatable="false">VirtIO</string>
+
     <string name="github" translatable="false">GitHub</string>
     <string name="nguyen_bao_an_bui" translatable="false">Nguyen Bao An Bui</string>
     <string name="internet_archive" translatable="false">Internet Archive</string>
@@ -1018,6 +1020,7 @@ E.g. <b>META</b> for <i>META key</i>, \n
 
     <string name="usb" translatable="false">USB</string>
     <string name="ps_2" translatable="false">PS/2</string>
+    <string name="virtio_tablet" >VirtIO tablet</string>
 
     <string name="opengl" translatable="false">OpenGL</string>
 

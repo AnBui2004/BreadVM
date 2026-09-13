@@ -1,5 +1,6 @@
 package hey.bread.vm.manager;
 
+import hey.bread.qemu.MainSettingsManager;
 import hey.bread.vm.main.vms.DataMainRoms;
 
 import java.util.regex.Pattern;
@@ -31,6 +32,13 @@ public class ParamManager {
     }
 
     public static boolean isUsbControllerRequired(DataMainRoms vmConfigs) {
-        return (vmConfigs.mouse > 0 || vmConfigs.keyboard > 0) && !hasUsb(vmConfigs.itemExtra);
+        return (
+                (
+                        vmConfigs.mouse > 0 && vmConfigs.mouse <= (vmConfigs.itemArch.equals(MainSettingsManager.ARM64_ARCH) ? 1 : 2))
+                ) ||
+                (
+                        vmConfigs.keyboard == (vmConfigs.itemArch.equals(MainSettingsManager.ARM64_ARCH) ? 0 : 1)
+                ) &&
+                        !hasUsb(vmConfigs.itemExtra);
     }
 }

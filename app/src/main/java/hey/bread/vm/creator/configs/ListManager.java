@@ -297,6 +297,8 @@ public class ListManager {
         UniversalPickerDialog.putToList(list, arch.equals(MainSettingsManager.ARM64_ARCH) ? context.getString(R.string.none) : context.getString(R.string.ps_2), "");
         UniversalPickerDialog.putToList(list, context.getString(R.string.usb), "usb-mouse");
         UniversalPickerDialog.putToList(list, context.getString(R.string.usb_tablet), "usb-tablet");
+        UniversalPickerDialog.putToList(list, context.getString(R.string.virtio), "virtio-mouse-pci");
+        UniversalPickerDialog.putToList(list, context.getString(R.string.virtio_tablet), "virtio-tablet-pci");
         return list;
     }
 
@@ -304,6 +306,7 @@ public class ListManager {
         ArrayList<HashMap<String, Object>> list = new ArrayList<>();
         UniversalPickerDialog.putToList(list, arch.equals(MainSettingsManager.ARM64_ARCH) ? context.getString(R.string.none) : context.getString(R.string.ps_2), "");
         UniversalPickerDialog.putToList(list, context.getString(R.string.usb), "usb-kbd");
+        UniversalPickerDialog.putToList(list, context.getString(R.string.virtio), "virtio-keyboard-pci");
         return list;
     }
 
