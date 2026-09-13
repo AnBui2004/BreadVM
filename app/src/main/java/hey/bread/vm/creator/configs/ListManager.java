@@ -292,6 +292,7 @@ public class ListManager {
         return list;
     }
 
+    // Please pay attention to ParamManager.isUsbControllerRequired when making changes here.
     public static ArrayList<HashMap<String, Object>> mouseTypes(Context context, String arch) {
         ArrayList<HashMap<String, Object>> list = new ArrayList<>();
         UniversalPickerDialog.putToList(list, arch.equals(MainSettingsManager.ARM64_ARCH) ? context.getString(R.string.none) : context.getString(R.string.ps_2), "");
@@ -302,6 +303,7 @@ public class ListManager {
         return list;
     }
 
+    // Please pay attention to ParamManager.isUsbControllerRequired when making changes here.
     public static ArrayList<HashMap<String, Object>> keyboardTypes(Context context, String arch) {
         ArrayList<HashMap<String, Object>> list = new ArrayList<>();
         UniversalPickerDialog.putToList(list, arch.equals(MainSettingsManager.ARM64_ARCH) ? context.getString(R.string.none) : context.getString(R.string.ps_2), "");
