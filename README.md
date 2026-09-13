@@ -63,6 +63,7 @@ Advanced options are [here](ADVANCED.md).
 
 ## ❤️ Thanks to
 - [Alpine Linux](https://www.alpinelinux.org/)
+- [android-vnc-viewer](https://github.com/antlersoft/android-vnc-viewer)
 - [Glide](https://github.com/bumptech/glide)
 - [Gson](https://github.com/google/gson)
 - [Mesa for Android Container](https://github.com/lfdevs/mesa-for-android-container)
