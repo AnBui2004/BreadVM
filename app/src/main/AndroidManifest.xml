@@ -205,22 +205,26 @@
             android:launchMode="singleTask"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.FullScreen"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            android:exported="false" />
         <activity
             android:name="hey.bread.qemu.MainSettingsManager"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
-            android:label="@string/settings" />
+            android:label="@string/settings"
+            android:exported="false" />
         <activity
             android:name=".creator.VMCreatorActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout" />
+            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+            android:exported="false" />
         <activity
             android:name=".DataExplorerActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="Data Explorer" />
         <activity
             android:name=".creator.SetArchActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
-            android:label="Set Qemu Version" />
+            android:label="Set Qemu Version"
+            android:exported="false" />
 
         <service
             android:name=".MainService"
@@ -232,7 +236,8 @@
             android:label="@string/application_name"
             android:launchMode="singleTask"
             android:resizeableActivity="true"
-            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
+            android:exported="false" />
         <activity
             android:name="com.termux.app.TermuxHelpActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"

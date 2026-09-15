@@ -19,6 +19,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -39,6 +40,7 @@ public class NotificationUtils {
     public static String generalChannelId = "general";
     public static String downloadChannelId = "download";
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public static void createAllChannel(Context context) {
         createChannel("General", "Receive new notifications.",
                 generalChannelId, NotificationManager.IMPORTANCE_DEFAULT, context);
@@ -61,7 +63,10 @@ public class NotificationUtils {
             Class<?> activityClass) {
 
         if (!isPermissionGranted(context)) return;
-        if (!isChannelExist(channelID, context)) createAllChannel(context);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !isChannelExist(channelID, context))
+            createAllChannel(context);
+
         if (!isChannelEnabled(channelID, context)) return;
 
         Intent intent;
