@@ -241,7 +241,7 @@ public final class TermuxService extends Service implements SessionChangedCallba
 
         Resources res = getResources();
         Intent exitIntent = new Intent(this, TermuxService.class).setAction(ACTION_STOP_SERVICE);
-        builder.addAction(android.R.drawable.ic_delete, res.getString(R.string.notification_action_exit), PendingIntent.getService(this, 0, exitIntent, 0));
+        builder.addAction(android.R.drawable.ic_delete, res.getString(R.string.notification_action_exit), PendingIntent.getService(this, 0, exitIntent, PendingIntent.FLAG_IMMUTABLE));
 
         String newWakeAction = wakeLockHeld ? ACTION_UNLOCK_WAKE : ACTION_LOCK_WAKE;
         Intent toggleWakeLockIntent = new Intent(this, TermuxService.class).setAction(newWakeAction);
@@ -249,7 +249,7 @@ public final class TermuxService extends Service implements SessionChangedCallba
             R.string.notification_action_wake_unlock :
             R.string.notification_action_wake_lock);
         int actionIcon = wakeLockHeld ? android.R.drawable.ic_lock_idle_lock : android.R.drawable.ic_lock_lock;
-        builder.addAction(actionIcon, actionTitle, PendingIntent.getService(this, 0, toggleWakeLockIntent, 0));
+        builder.addAction(actionIcon, actionTitle, PendingIntent.getService(this, 0, toggleWakeLockIntent, PendingIntent.FLAG_IMMUTABLE));
 
         return builder.build();
     }
