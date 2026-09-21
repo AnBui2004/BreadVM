@@ -1,7 +1,10 @@
 package hey.bread.vm.settings;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -44,21 +47,35 @@ public class SystemSettingsActivity extends AppCompatActivity {
         binding.swAlwaysShowLogs.setChecked(SettingsData.alwaysShowLog(this));
 
         binding.lnLanguage.setOnClickListener(v -> {
-            ItemSettingsSelector.language(this, ItemSettingsSelector.getLanguagePosition(this, MainSettingsManager.getLang(this)), (position, name, value) -> {
-                if (!value.isEmpty()) {
-                    AppCompatDelegate.setApplicationLocales(
-                            LocaleListCompat.forLanguageTags(value)
-                    );
-                } else {
-                    AppCompatDelegate.setApplicationLocales(
-                            LocaleListCompat.getEmptyLocaleList()
-                    );
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                try {
+                    Intent intent = new Intent(Settings.ACTION_APP_LOCALE_SETTINGS);
+                    intent.setData(Uri.fromParts("package", getPackageName(), null));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    showLanguageSelector();
                 }
-
-                MainSettingsManager.setLang(this, value);
-            });
+            } else {
+                showLanguageSelector();
+            }
         });
 
         binding.lnUpdate.setOnClickListener(v -> startActivity(new Intent(this, UpdaterActivity.class)));
+    }
+
+    void showLanguageSelector() {
+        ItemSettingsSelector.language(this, ItemSettingsSelector.getLanguagePosition(this, MainSettingsManager.getLang(this)), (position, name, value) -> {
+            if (!value.isEmpty()) {
+                AppCompatDelegate.setApplicationLocales(
+                        LocaleListCompat.forLanguageTags(value)
+                );
+            } else {
+                AppCompatDelegate.setApplicationLocales(
+                        LocaleListCompat.getEmptyLocaleList()
+                );
+            }
+
+            MainSettingsManager.setLang(this, value);
+        });
     }
 }

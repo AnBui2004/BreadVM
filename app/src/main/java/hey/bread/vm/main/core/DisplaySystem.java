@@ -24,6 +24,7 @@ import hey.bread.vm.setupwizard.SetupFeatureCore;
 import hey.bread.vm.utils.DialogUtils;
 import hey.bread.vm.utils.FileUtils;
 import hey.bread.vm.utils.PackageUtils;
+import hey.bread.vm.utils.PermissionUtils;
 import hey.bread.vm.x11.X11Activity;
 import hey.bread.terminal.Terminal2;
 
@@ -56,9 +57,16 @@ public class DisplaySystem {
     }
 
     public static void launchX11(Context context) {
-        if (!isUseBuiltInX11() && !PackageUtils.isInstalled("com.termux.x11", context)) {
-            DialogUtils.needInstallTermuxX11(context);
-            return;
+        if (isUseBuiltInX11()) {
+            if (context instanceof Activity activity) {
+                if (!PermissionUtils.postNotificationPermission(activity, true)) return;
+            }
+
+        } else {
+            if (!PackageUtils.isInstalled("com.termux.x11", context)) {
+                DialogUtils.needInstallTermuxX11(context);
+                return;
+            }
         }
 
         // XFCE4 meta-package

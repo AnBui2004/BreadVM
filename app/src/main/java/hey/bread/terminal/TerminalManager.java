@@ -15,9 +15,12 @@ import hey.bread.vm.settings.SettingsData;
 import hey.bread.vm.utils.DeviceUtils;
 import hey.bread.vm.utils.DialogUtils;
 import hey.bread.vm.utils.FileUtils;
+import hey.bread.vm.utils.PermissionUtils;
 
 public class TerminalManager {
     public static void openTerminal(Activity activity) {
+        if (!PermissionUtils.postNotificationPermission(activity, true)) return;
+
         if (SettingsData.terminalWarning(activity)) {
             activity.startActivity(new Intent(activity, TermuxActivity.class));
         } else {

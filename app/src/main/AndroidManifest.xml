@@ -7,9 +7,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <uses-permission
         android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
@@ -20,6 +17,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
@@ -30,11 +28,11 @@
 
     <!-- Signature-level guard for the exported RunCommandService: only apps
          signed with this key may push commands into the app's shell. -->
-<!--    <permission-->
-<!--        android:name="com.termux.permission.RUN_COMMAND"-->
-<!--        android:protectionLevel="signature" />-->
+    <!--    <permission-->
+    <!--        android:name="com.termux.permission.RUN_COMMAND"-->
+    <!--        android:protectionLevel="signature" />-->
 
-<!--    <uses-permission android:name="com.termux.permission.RUN_COMMAND" />-->
+    <!--    <uses-permission android:name="com.termux.permission.RUN_COMMAND" />-->
 
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -53,8 +51,8 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="false"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="false">
         <activity
             android:name=".setupwizard.TurnipZinkSetupWizardActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
@@ -202,16 +200,16 @@
         <activity
             android:name="hey.bread.qemu.MainVNCActivity"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize"
+            android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/Theme.FullScreen"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="false" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="hey.bread.qemu.MainSettingsManager"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize|smallestScreenSize"
-            android:label="@string/settings"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/settings" />
         <activity
             android:name=".creator.VMCreatorActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
@@ -223,21 +221,26 @@
         <activity
             android:name=".creator.SetArchActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
-            android:label="Set Qemu Version"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Set Qemu Version" />
 
         <service
             android:name=".MainService"
-            android:exported="false" />
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="VMs are running..." />
+        </service>
 
         <activity
             android:name="com.termux.app.TermuxActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|density|screenLayout|uiMode|keyboard|keyboardHidden|navigation"
+            android:exported="false"
             android:label="@string/application_name"
             android:launchMode="singleTask"
             android:resizeableActivity="true"
-            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"
-            android:exported="false" />
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
         <activity
             android:name="com.termux.app.TermuxHelpActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
@@ -246,11 +249,11 @@
         <service
             android:name="com.termux.app.TermuxService"
             android:exported="false" />
-<!--        <service-->
-<!--            android:name="com.termux.app.RunCommandService"-->
-<!--            android:exported="true"-->
-<!--            android:permission="com.termux.permission.RUN_COMMAND"-->
-<!--            android:stopWithTask="true" /> &lt;!&ndash; Termux-X11 &ndash;&gt;-->
+        <!--        <service-->
+        <!--            android:name="com.termux.app.RunCommandService"-->
+        <!--            android:exported="true"-->
+        <!--            android:permission="com.termux.permission.RUN_COMMAND"-->
+        <!--            android:stopWithTask="true" /> &lt;!&ndash; Termux-X11 &ndash;&gt;-->
         <activity
             android:name=".x11.X11Activity"
             android:configChanges="fontScale|orientation|screenSize|keyboard|keyboardHidden|layoutDirection|locale|mcc|mnc|navigation|screenLayout|touchscreen|uiMode|smallestScreenSize|density"
@@ -304,7 +307,11 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".x11.LorieBroadcastReceiver" android:exported="true" tools:ignore="ExportedReceiver" android:enabled="true">
+        <receiver
+            android:name=".x11.LorieBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="hey.bread.vm.x11.CmdEntryPoint.ACTION_START" />
                 <action android:name="hey.bread.vm.x11.ACTION_STOP" />

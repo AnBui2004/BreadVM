@@ -51,7 +51,7 @@ public class MainService extends Service {
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(getString(R.string.app_name))
-                .setContentText("The virtual machines are running...")
+                .setContentText(getText(R.string.vms_are_running))
                 .setSmallIcon(R.drawable.bread_vm_24px)
                 .addAction(R.drawable.close_24px, getString(R.string.stop), pStopSelf)
                 .build();

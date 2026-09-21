@@ -4,6 +4,7 @@ import android.androidVNC.AbstractScaling;
 import android.androidVNC.ConnectionBean;
 import android.androidVNC.VncCanvasActivity;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -169,6 +170,13 @@ public class MainVNCActivity extends VncCanvasActivity {
         initializeGameControl();
         initializeSendKeyDialog();
         initialize();
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                onBackPressed();
+            }
+        });
     }
 
     public void setContentView() {

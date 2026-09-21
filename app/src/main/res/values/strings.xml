@@ -817,6 +817,8 @@
     <string name="allow_permissions">Allow permissions</string>
     <string name="you_need_to_grant_permission_to_access_the_storage_before_use">You need to grant permission to access the storage before use.</string>
     <string name="find_and_allow_access_to_storage_in_settings">Find and allow access to storage in Settings.</string>
+    <string name="you_need_to_grant_permission_to_post_notifications_before_continue">You need to grant permission to post notifications before continue.</string>
+    <string name="find_and_grant_permission_to_post_notifications">Find and grant permission to post notifications.</string>
     <string name="do_you_want_to_set_it_up_automatically_or_select_the_bootstrap_file_manually">Do you want to set it up automatically or select the bootstrap file manually?</string>
     <string name="auto_setup">Auto setup</string>
     <string name="manual">Manual</string>
@@ -827,6 +829,7 @@
     <string name="bootstrap_required">Bootstrap required!</string>
     <string name="you_can_choose_between_auto_download_and_setup_or_manual_setup_by_choosing_bootstrap_file">You can choose between auto download and setup or manual setup by choosing bootstrap file.</string>
     <string name="manual_setup">Manual setup</string>
+    <string name="vms_are_running">VMs are running…</string>
 
     <string name="alpine_desktop">Alpine Xfce4</string>
     <string name="settings_x11_display_resolution_mode">Display resolution mode</string>

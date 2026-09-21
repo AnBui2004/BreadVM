@@ -32,6 +32,7 @@ import hey.bread.vm.utils.DialogUtils;
 import hey.bread.vm.utils.FileUtils;
 import hey.bread.vm.utils.NetworkUtils;
 import hey.bread.vm.utils.PackageUtils;
+import hey.bread.vm.utils.PermissionUtils;
 import hey.bread.vm.utils.ServiceUtils;
 import hey.bread.vm.utils.TextUtils;
 
@@ -157,8 +158,14 @@ public class MainStartVM {
             StartVmDialog dialog,
             MainStartVMCallback callback
     ) {
+        if (context instanceof Activity activity) {
+            if (!PermissionUtils.storagepermission(activity, true)) breakNow = true;
+            if (!PermissionUtils.postNotificationPermission(activity, true)) breakNow = true;
+        }
+
         if (breakNow) {
             breakNow = false;
+            dismissDialog();
             if (callback != null) callback.onError(PENDDING_EMPTY, "");
             return;
         }

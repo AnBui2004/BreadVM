@@ -800,6 +800,8 @@
     <string name="allow_permissions">Cấp quyền</string>
     <string name="you_need_to_grant_permission_to_access_the_storage_before_use">Bạn cần cấp quyền truy cập vào bộ nhớ trước khi sử dụng.</string>
     <string name="find_and_allow_access_to_storage_in_settings">Tìm và cho phép truy cập vào bộ nhớ trong Cài đặt.</string>
+    <string name="you_need_to_grant_permission_to_post_notifications_before_continue">Bạn cần cấp quyền gửi các thông báo trước khi tiếp tục.</string>
+    <string name="find_and_grant_permission_to_post_notifications">Tìm và cấp quyền gửi các thông báo.</string>
     <string name="do_you_want_to_set_it_up_automatically_or_select_the_bootstrap_file_manually">Bạn muốn thiết lập tự động hay chọn tệp bootstrap theo cách thủ công?</string>
     <string name="auto_setup">Thiết lập tự động</string>
     <string name="manual">Thủ công</string>
@@ -810,6 +812,7 @@
     <string name="bootstrap_required">Yêu cầu Bootstrap!</string>
     <string name="you_can_choose_between_auto_download_and_setup_or_manual_setup_by_choosing_bootstrap_file">Bạn có thể chọn giữa tự động tải xuống và thiết lập hoặc thiết lập thủ công bằng cách chọn tệp bootstrap.</string>
     <string name="manual_setup">Thiết lập thủ công</string>
+    <string name="vms_are_running">Các máy ảo đang chạy…</string>
 
     <string name="alpine_desktop">Alpine Xfce4</string>
     <string name="settings_x11_display_resolution_mode">Chế độ độ phân giải màn hình</string>
