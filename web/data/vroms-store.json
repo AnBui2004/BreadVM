@@ -1164,6 +1164,23 @@
     "id": "99695"
   },
   {
+    "rom_name": "Windows Premiere Edition",
+    "rom_path": "WindowsP.R.ima",
+    "rom_avail": false,
+    "gui": true,
+    "rom_size": "The Os was too light but its not available, so nbab will make it available (I think?)".
+    "desc": "Before Windows 1.01's Release date",
+    "rom_arch": "X86_64",
+    "rom_kernel": "windows",
+    "final_rom_full_name": "WindowsP.R.ima"
+    "file_size": "1.9 MB",
+    "containsAds": false,
+    "creator": "What The Heck In Github",
+    "verified": true,
+    "vecid": "windowsprima",
+    "id": ""
+  },
+  {
     "rom_name": "Windows 1.01",
     "rom_icon": "https://upload.wikimedia.org/wikipedia/commons/8/80/Windows_1.01_booting.png",
     "rom_url": "https://www.mediafire.com/file/4sdhxfkxlj6w5o0/Windows1.0.ima/file",
